@@ -1,0 +1,286 @@
+{
+  "reviewed_at": "2026-07-16",
+  "sample_size": 12,
+  "sample_design": "12 rows stratified across categories and access risk; official source pages manually checked; field-level comparison, not a claim about all 100 rows",
+  "first_pass": {
+    "hits": 48,
+    "fields": 48,
+    "accuracy": 1.0
+  },
+  "after_human_and_source_loop": {
+    "hits": 48,
+    "fields": 48,
+    "accuracy": 1.0
+  },
+  "records": [
+    {
+      "id": 1,
+      "app": "Salesforce",
+      "category": "CRM & Sales",
+      "evidence_grade": "high",
+      "review_note": "OAuth2 connected apps are required for the REST integration; org/admin setup remains the install gate.",
+      "source_url": "https://developer.salesforce.com/docs/platform/connect-rest-api/guide/quickstart.html",
+      "review_method": "Official source page manually checked against the four decision fields",
+      "first_pass_matches": [
+        "auth",
+        "access",
+        "api",
+        "verdict"
+      ],
+      "corrected_fields": [],
+      "final_matches": [
+        "auth",
+        "access",
+        "api",
+        "verdict"
+      ]
+    },
+    {
+      "id": 2,
+      "app": "HubSpot",
+      "category": "CRM & Sales",
+      "evidence_grade": "high",
+      "review_note": "HubSpot documents OAuth for distributed apps and private access tokens for account-scoped integrations.",
+      "source_url": "https://developers.hubspot.com/docs/apps/developer-platform/build-apps/authentication/overview",
+      "review_method": "Official source page manually checked against the four decision fields",
+      "first_pass_matches": [
+        "auth",
+        "access",
+        "api",
+        "verdict"
+      ],
+      "corrected_fields": [],
+      "final_matches": [
+        "auth",
+        "access",
+        "api",
+        "verdict"
+      ]
+    },
+    {
+      "id": 11,
+      "app": "Zendesk",
+      "category": "Support & Helpdesk",
+      "evidence_grade": "high",
+      "review_note": "Zendesk supports OAuth access tokens and API tokens; distributed apps need global OAuth and admin-scoped setup.",
+      "source_url": "https://developer.zendesk.com/api-reference/introduction/security-and-auth/",
+      "review_method": "Official source page manually checked against the four decision fields",
+      "first_pass_matches": [
+        "auth",
+        "access",
+        "api",
+        "verdict"
+      ],
+      "corrected_fields": [],
+      "final_matches": [
+        "auth",
+        "access",
+        "api",
+        "verdict"
+      ]
+    },
+    {
+      "id": 21,
+      "app": "Slack",
+      "category": "Communications & Messaging",
+      "evidence_grade": "high",
+      "review_note": "Slack's Web API is authenticated through OAuth tokens, with workspace installation and scopes determining access.",
+      "source_url": "https://api.slack.com/authentication",
+      "review_method": "Official source page manually checked against the four decision fields",
+      "first_pass_matches": [
+        "auth",
+        "access",
+        "api",
+        "verdict"
+      ],
+      "corrected_fields": [],
+      "final_matches": [
+        "auth",
+        "access",
+        "api",
+        "verdict"
+      ]
+    },
+    {
+      "id": 28,
+      "app": "WhatsApp Business",
+      "category": "Communications & Messaging",
+      "evidence_grade": "high",
+      "review_note": "Cloud API access uses Meta tokens and business/app/phone setup; verification and review are real gates.",
+      "source_url": "https://developers.facebook.com/docs/whatsapp/cloud-api/get-started/",
+      "review_method": "Official source page manually checked against the four decision fields",
+      "first_pass_matches": [
+        "auth",
+        "access",
+        "api",
+        "verdict"
+      ],
+      "corrected_fields": [],
+      "final_matches": [
+        "auth",
+        "access",
+        "api",
+        "verdict"
+      ]
+    },
+    {
+      "id": 31,
+      "app": "Google Ads",
+      "category": "Marketing, Ads, Email & Social",
+      "evidence_grade": "high",
+      "review_note": "OAuth is paired with a developer token whose access level controls production capability and may require review.",
+      "source_url": "https://developers.google.com/google-ads/api/docs/api-policy/developer-token",
+      "review_method": "Official source page manually checked against the four decision fields",
+      "first_pass_matches": [
+        "auth",
+        "access",
+        "api",
+        "verdict"
+      ],
+      "corrected_fields": [],
+      "final_matches": [
+        "auth",
+        "access",
+        "api",
+        "verdict"
+      ]
+    },
+    {
+      "id": 41,
+      "app": "Shopify",
+      "category": "Ecommerce",
+      "evidence_grade": "high",
+      "review_note": "Shopify documents OAuth/token exchange for merchant installs; scopes and distribution determine the build path.",
+      "source_url": "https://shopify.dev/docs/apps/build/authentication-authorization/access-tokens",
+      "review_method": "Official source page manually checked against the four decision fields",
+      "first_pass_matches": [
+        "auth",
+        "access",
+        "api",
+        "verdict"
+      ],
+      "corrected_fields": [],
+      "final_matches": [
+        "auth",
+        "access",
+        "api",
+        "verdict"
+      ]
+    },
+    {
+      "id": 53,
+      "app": "Ahrefs",
+      "category": "Data, SEO & Scraping",
+      "evidence_grade": "high",
+      "review_note": "Ahrefs requires a bearer API key, and key creation/API usage is owner/admin and paid-plan constrained.",
+      "source_url": "https://docs.ahrefs.com/en/api/docs/api-keys-creation-and-management",
+      "review_method": "Official source page manually checked against the four decision fields",
+      "first_pass_matches": [
+        "auth",
+        "access",
+        "api",
+        "verdict"
+      ],
+      "corrected_fields": [],
+      "final_matches": [
+        "auth",
+        "access",
+        "api",
+        "verdict"
+      ]
+    },
+    {
+      "id": 61,
+      "app": "GitHub",
+      "category": "Developer, Infra & Data Platforms",
+      "evidence_grade": "high",
+      "review_note": "GitHub supports PATs, GitHub App tokens and OAuth; permissions are endpoint-specific and self-serve.",
+      "source_url": "https://docs.github.com/en/rest/authentication",
+      "review_method": "Official source page manually checked against the four decision fields",
+      "first_pass_matches": [
+        "auth",
+        "access",
+        "api",
+        "verdict"
+      ],
+      "corrected_fields": [],
+      "final_matches": [
+        "auth",
+        "access",
+        "api",
+        "verdict"
+      ]
+    },
+    {
+      "id": 71,
+      "app": "Notion",
+      "category": "Productivity & Project Management",
+      "evidence_grade": "high",
+      "review_note": "Notion supports internal static tokens and public OAuth; pages must be explicitly shared with the connection.",
+      "source_url": "https://developers.notion.com/guides/get-started/authorization",
+      "review_method": "Official source page manually checked against the four decision fields",
+      "first_pass_matches": [
+        "auth",
+        "access",
+        "api",
+        "verdict"
+      ],
+      "corrected_fields": [],
+      "final_matches": [
+        "auth",
+        "access",
+        "api",
+        "verdict"
+      ]
+    },
+    {
+      "id": 81,
+      "app": "Stripe",
+      "category": "Finance & Fintech",
+      "evidence_grade": "high",
+      "review_note": "Stripe uses API keys, with test-mode keys self-serve and live-mode access subject to account verification.",
+      "source_url": "https://docs.stripe.com/keys",
+      "review_method": "Official source page manually checked against the four decision fields",
+      "first_pass_matches": [
+        "auth",
+        "access",
+        "api",
+        "verdict"
+      ],
+      "corrected_fields": [],
+      "final_matches": [
+        "auth",
+        "access",
+        "api",
+        "verdict"
+      ]
+    },
+    {
+      "id": 90,
+      "app": "PitchBook",
+      "category": "Finance & Fintech",
+      "evidence_grade": "medium",
+      "review_note": "The public site exposes product/research positioning but no clearly documented general-purpose self-serve API path; route to sales.",
+      "source_url": "https://pitchbook.com/",
+      "review_method": "Official source page manually checked against the four decision fields",
+      "first_pass_matches": [
+        "auth",
+        "access",
+        "api",
+        "verdict"
+      ],
+      "corrected_fields": [],
+      "final_matches": [
+        "auth",
+        "access",
+        "api",
+        "verdict"
+      ]
+    }
+  ],
+  "limitations": [
+    "The 12-row check is directional and intentionally not presented as statistically representative.",
+    "A live URL probe confirms reachability only; it cannot prove auth or commercial policy.",
+    "Rows with human_follow_up=true remain the next review queue before production toolkit sourcing."
+  ]
+}

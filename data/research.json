@@ -1,0 +1,3425 @@
+{
+  "generated_at": "2026-07-16T18:05:16.008289+00:00",
+  "method": "Offline deterministic -> Verification-ready output",
+  "live_check": true,
+  "rows": [
+    {
+      "id": 1,
+      "app": "Salesforce",
+      "category": "CRM & Sales",
+      "hint": "salesforce.com",
+      "description": "Customer records",
+      "auth": "OAuth2; API key/token",
+      "access": "Self-serve trial",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://salesforce.com",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2; API key/token",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2; API key/token",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": 16,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://www.salesforce.com/in/?ir=1"
+      }
+    },
+    {
+      "id": 2,
+      "app": "HubSpot",
+      "category": "CRM & Sales",
+      "hint": "hubspot.com",
+      "description": "Customer records",
+      "auth": "OAuth2; API key/token",
+      "access": "Self-serve trial",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://hubspot.com",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2; API key/token",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2; API key/token",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": 6,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://www.hubspot.com/"
+      }
+    },
+    {
+      "id": 3,
+      "app": "Pipedrive",
+      "category": "CRM & Sales",
+      "hint": "pipedrive.com",
+      "description": "Customer records",
+      "auth": "OAuth2; API key/token",
+      "access": "Self-serve trial",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://pipedrive.com",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2; API key/token",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2; API key/token",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://www.pipedrive.com/"
+      }
+    },
+    {
+      "id": 4,
+      "app": "Attio",
+      "category": "CRM & Sales",
+      "hint": "attio.com",
+      "description": "Customer records",
+      "auth": "OAuth2; API key/token",
+      "access": "Self-serve trial",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://attio.com",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2; API key/token",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2; API key/token",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://attio.com"
+      }
+    },
+    {
+      "id": 5,
+      "app": "Twenty",
+      "category": "CRM & Sales",
+      "hint": "twenty.com (open-source CRM)",
+      "description": "Customer records",
+      "auth": "OAuth2; API key/token",
+      "access": "Self-serve trial",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://twenty.com",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2; API key/token",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2; API key/token",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://twenty.com"
+      }
+    },
+    {
+      "id": 6,
+      "app": "Podio",
+      "category": "CRM & Sales",
+      "hint": "podio.com",
+      "description": "Customer records",
+      "auth": "OAuth2; API key/token",
+      "access": "Self-serve trial",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://podio.com",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2; API key/token",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2; API key/token",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://podio.com"
+      }
+    },
+    {
+      "id": 7,
+      "app": "Zoho CRM",
+      "category": "CRM & Sales",
+      "hint": "zoho.com/crm",
+      "description": "Customer records",
+      "auth": "OAuth2; API key/token",
+      "access": "Self-serve trial",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://zoho.com/crm",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2; API key/token",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2; API key/token",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://www.zoho.com/en-in/crm/"
+      }
+    },
+    {
+      "id": 8,
+      "app": "Close",
+      "category": "CRM & Sales",
+      "hint": "close.com",
+      "description": "Customer records",
+      "auth": "OAuth2; API key/token",
+      "access": "Self-serve trial",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://close.com",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2; API key/token",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2; API key/token",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://close.com"
+      }
+    },
+    {
+      "id": 9,
+      "app": "Copper",
+      "category": "CRM & Sales",
+      "hint": "copper.com",
+      "description": "Customer records",
+      "auth": "OAuth2; API key/token",
+      "access": "Self-serve trial",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://copper.com",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2; API key/token",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2; API key/token",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://www.copper.com:443/"
+      }
+    },
+    {
+      "id": 10,
+      "app": "DealCloud",
+      "category": "CRM & Sales",
+      "hint": "api.docs.dealcloud.com",
+      "description": "Customer records",
+      "auth": "OAuth2; API key/token",
+      "access": "Self-serve trial",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://api.docs.dealcloud.com",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2; API key/token",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2; API key/token",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://api.docs.dealcloud.com"
+      }
+    },
+    {
+      "id": 11,
+      "app": "Zendesk",
+      "category": "Support & Helpdesk",
+      "hint": "zendesk.com",
+      "description": "Tickets",
+      "auth": "OAuth2; API token/key",
+      "access": "Self-serve trial",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://zendesk.com",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2; API token/key",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2; API token/key",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": 23,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://www.zendesk.com/in/#georedirect"
+      }
+    },
+    {
+      "id": 12,
+      "app": "Intercom",
+      "category": "Support & Helpdesk",
+      "hint": "intercom.com",
+      "description": "Tickets",
+      "auth": "OAuth2; API token/key",
+      "access": "Self-serve trial",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://intercom.com",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2; API token/key",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2; API token/key",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": 22,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://www.intercom.com/"
+      }
+    },
+    {
+      "id": 13,
+      "app": "Freshdesk",
+      "category": "Support & Helpdesk",
+      "hint": "freshdesk.com",
+      "description": "Tickets",
+      "auth": "OAuth2; API token/key",
+      "access": "Self-serve trial",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://freshdesk.com",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2; API token/key",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2; API token/key",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "http-error",
+        "http": 403
+      }
+    },
+    {
+      "id": 14,
+      "app": "Front",
+      "category": "Support & Helpdesk",
+      "hint": "front.com",
+      "description": "Tickets",
+      "auth": "OAuth2; API token/key",
+      "access": "Self-serve trial",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://front.com",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2; API token/key",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2; API token/key",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://front.com"
+      }
+    },
+    {
+      "id": 15,
+      "app": "Pylon",
+      "category": "Support & Helpdesk",
+      "hint": "usepylon.com",
+      "description": "Tickets",
+      "auth": "OAuth2; API token/key",
+      "access": "Self-serve trial",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://usepylon.com",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2; API token/key",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2; API token/key",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://www.usepylon.com/"
+      }
+    },
+    {
+      "id": 16,
+      "app": "LiveAgent",
+      "category": "Support & Helpdesk",
+      "hint": "liveagent.com",
+      "description": "Tickets",
+      "auth": "OAuth2; API token/key",
+      "access": "Self-serve trial",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://liveagent.com",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2; API token/key",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2; API token/key",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://www.liveagent.com/"
+      }
+    },
+    {
+      "id": 17,
+      "app": "Plain",
+      "category": "Support & Helpdesk",
+      "hint": "plain.com",
+      "description": "Tickets",
+      "auth": "OAuth2; API token/key",
+      "access": "Self-serve trial",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://plain.com",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2; API token/key",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2; API token/key",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://www.plain.com/"
+      }
+    },
+    {
+      "id": 18,
+      "app": "Help Scout",
+      "category": "Support & Helpdesk",
+      "hint": "helpscout.com",
+      "description": "Tickets",
+      "auth": "OAuth2; API token/key",
+      "access": "Self-serve trial",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://helpscout.com",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2; API token/key",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2; API token/key",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://www.helpscout.com/"
+      }
+    },
+    {
+      "id": 19,
+      "app": "Gorgias",
+      "category": "Support & Helpdesk",
+      "hint": "gorgias.com",
+      "description": "Tickets",
+      "auth": "OAuth2; API token/key",
+      "access": "Self-serve trial",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://gorgias.com",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2; API token/key",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2; API token/key",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://www.gorgias.com/"
+      }
+    },
+    {
+      "id": 20,
+      "app": "Gladly",
+      "category": "Support & Helpdesk",
+      "hint": "gladly.com",
+      "description": "Tickets",
+      "auth": "OAuth2; API token/key",
+      "access": "Self-serve trial",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://gladly.com",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2; API token/key",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2; API token/key",
+        "access": "Self-serve trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://www.gladly.ai/"
+      }
+    },
+    {
+      "id": 21,
+      "app": "Slack",
+      "category": "Communications & Messaging",
+      "hint": "slack.com",
+      "description": "Team chat",
+      "auth": "OAuth2, bot token",
+      "access": "Mostly self-serve",
+      "api": "REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://slack.com",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2, bot token",
+        "access": "Mostly self-serve",
+        "api": "REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2, bot token",
+        "access": "Mostly self-serve",
+        "api": "REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": 5,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://slack.com/intl/en-in/"
+      }
+    },
+    {
+      "id": 22,
+      "app": "Twilio",
+      "category": "Communications & Messaging",
+      "hint": "twilio.com",
+      "description": "Team chat",
+      "auth": "OAuth2, bot token",
+      "access": "Mostly self-serve",
+      "api": "REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://twilio.com",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2, bot token",
+        "access": "Mostly self-serve",
+        "api": "REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2, bot token",
+        "access": "Mostly self-serve",
+        "api": "REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://www.twilio.com/en-us"
+      }
+    },
+    {
+      "id": 23,
+      "app": "Zoho Cliq",
+      "category": "Communications & Messaging",
+      "hint": "zoho.com/cliq",
+      "description": "Team chat",
+      "auth": "OAuth2, bot token",
+      "access": "Mostly self-serve",
+      "api": "REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://zoho.com/cliq",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2, bot token",
+        "access": "Mostly self-serve",
+        "api": "REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2, bot token",
+        "access": "Mostly self-serve",
+        "api": "REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://www.zoho.com/cliq/"
+      }
+    },
+    {
+      "id": 24,
+      "app": "Lark (Larksuite)",
+      "category": "Communications & Messaging",
+      "hint": "open.larksuite.com",
+      "description": "Team chat",
+      "auth": "OAuth2, bot token",
+      "access": "Mostly self-serve",
+      "api": "REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://open.larksuite.com",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2, bot token",
+        "access": "Mostly self-serve",
+        "api": "REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2, bot token",
+        "access": "Mostly self-serve",
+        "api": "REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "http-error",
+        "http": 404
+      }
+    },
+    {
+      "id": 25,
+      "app": "Pumble",
+      "category": "Communications & Messaging",
+      "hint": "pumble.com",
+      "description": "Team chat",
+      "auth": "OAuth2, bot token",
+      "access": "Mostly self-serve",
+      "api": "REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://pumble.com",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2, bot token",
+        "access": "Mostly self-serve",
+        "api": "REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2, bot token",
+        "access": "Mostly self-serve",
+        "api": "REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://pumble.com"
+      }
+    },
+    {
+      "id": 26,
+      "app": "Discord",
+      "category": "Communications & Messaging",
+      "hint": "discord.com",
+      "description": "Team chat",
+      "auth": "OAuth2, bot token",
+      "access": "Mostly self-serve",
+      "api": "REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://discord.com",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2, bot token",
+        "access": "Mostly self-serve",
+        "api": "REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2, bot token",
+        "access": "Mostly self-serve",
+        "api": "REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": 25,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://discord.com"
+      }
+    },
+    {
+      "id": 27,
+      "app": "Telegram",
+      "category": "Communications & Messaging",
+      "hint": "core.telegram.org",
+      "description": "Team chat",
+      "auth": "OAuth2, bot token",
+      "access": "Mostly self-serve",
+      "api": "REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://core.telegram.org",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2, bot token",
+        "access": "Mostly self-serve",
+        "api": "REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2, bot token",
+        "access": "Mostly self-serve",
+        "api": "REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://core.telegram.org"
+      }
+    },
+    {
+      "id": 28,
+      "app": "WhatsApp Business",
+      "category": "Communications & Messaging",
+      "hint": "developers.facebook.com/docs/whatsapp",
+      "description": "Team chat",
+      "auth": "OAuth2, bot token",
+      "access": "Mostly self-serve",
+      "api": "REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://developers.facebook.com/docs/whatsapp",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2, bot token",
+        "access": "Mostly self-serve",
+        "api": "REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2, bot token",
+        "access": "Mostly self-serve",
+        "api": "REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://developers.facebook.com/documentation/business-messaging/whatsapp/overview"
+      }
+    },
+    {
+      "id": 29,
+      "app": "Aircall",
+      "category": "Communications & Messaging",
+      "hint": "aircall.io",
+      "description": "Team chat",
+      "auth": "OAuth2, bot token",
+      "access": "Mostly self-serve",
+      "api": "REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://aircall.io",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2, bot token",
+        "access": "Mostly self-serve",
+        "api": "REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2, bot token",
+        "access": "Mostly self-serve",
+        "api": "REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://aircall.io"
+      }
+    },
+    {
+      "id": 30,
+      "app": "Vonage",
+      "category": "Communications & Messaging",
+      "hint": "developer.vonage.com",
+      "description": "Team chat",
+      "auth": "OAuth2, bot token",
+      "access": "Mostly self-serve",
+      "api": "REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://developer.vonage.com",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2, bot token",
+        "access": "Mostly self-serve",
+        "api": "REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2, bot token",
+        "access": "Mostly self-serve",
+        "api": "REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://developer.vonage.com/en/home"
+      }
+    },
+    {
+      "id": 31,
+      "app": "Google Ads",
+      "category": "Marketing, Ads, Email & Social",
+      "hint": "developers.google.com/google-ads",
+      "description": "Campaigns",
+      "auth": "OAuth2",
+      "access": "Self-serve developer account",
+      "api": "REST/Graph APIs",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://developers.google.com/google-ads",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2",
+        "access": "Self-serve developer account",
+        "api": "REST/Graph APIs",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2",
+        "access": "Self-serve developer account",
+        "api": "REST/Graph APIs",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://developers.google.com/google-ads"
+      }
+    },
+    {
+      "id": 32,
+      "app": "Meta Ads",
+      "category": "Marketing, Ads, Email & Social",
+      "hint": "developers.facebook.com/docs/marketing-apis",
+      "description": "Campaigns",
+      "auth": "OAuth2",
+      "access": "Self-serve developer account",
+      "api": "REST/Graph APIs",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://developers.facebook.com/docs/marketing-apis",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2",
+        "access": "Self-serve developer account",
+        "api": "REST/Graph APIs",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2",
+        "access": "Self-serve developer account",
+        "api": "REST/Graph APIs",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://developers.facebook.com/documentation/ads-commerce/marketing-api"
+      }
+    },
+    {
+      "id": 33,
+      "app": "LinkedIn Ads",
+      "category": "Marketing, Ads, Email & Social",
+      "hint": "learn.microsoft.com/linkedin/marketing",
+      "description": "Campaigns",
+      "auth": "OAuth2",
+      "access": "Self-serve developer account",
+      "api": "REST/Graph APIs",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://learn.microsoft.com/linkedin/marketing",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2",
+        "access": "Self-serve developer account",
+        "api": "REST/Graph APIs",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2",
+        "access": "Self-serve developer account",
+        "api": "REST/Graph APIs",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://learn.microsoft.com/en-us/linkedin/marketing"
+      }
+    },
+    {
+      "id": 34,
+      "app": "GoHighLevel",
+      "category": "Marketing, Ads, Email & Social",
+      "hint": "highlevel.stoplight.io",
+      "description": "Campaigns",
+      "auth": "OAuth2",
+      "access": "Self-serve developer account",
+      "api": "REST/Graph APIs",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://highlevel.stoplight.io",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2",
+        "access": "Self-serve developer account",
+        "api": "REST/Graph APIs",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2",
+        "access": "Self-serve developer account",
+        "api": "REST/Graph APIs",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://highlevel.stoplight.io"
+      }
+    },
+    {
+      "id": 35,
+      "app": "Mailchimp",
+      "category": "Marketing, Ads, Email & Social",
+      "hint": "mailchimp.com/developer",
+      "description": "Campaigns",
+      "auth": "OAuth2",
+      "access": "Self-serve developer account",
+      "api": "REST/Graph APIs",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://mailchimp.com/developer",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2",
+        "access": "Self-serve developer account",
+        "api": "REST/Graph APIs",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2",
+        "access": "Self-serve developer account",
+        "api": "REST/Graph APIs",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://mailchimp.com/developer/"
+      }
+    },
+    {
+      "id": 36,
+      "app": "Klaviyo",
+      "category": "Marketing, Ads, Email & Social",
+      "hint": "developers.klaviyo.com",
+      "description": "Campaigns",
+      "auth": "OAuth2",
+      "access": "Self-serve developer account",
+      "api": "REST/Graph APIs",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://developers.klaviyo.com",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2",
+        "access": "Self-serve developer account",
+        "api": "REST/Graph APIs",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2",
+        "access": "Self-serve developer account",
+        "api": "REST/Graph APIs",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://developers.klaviyo.com/en"
+      }
+    },
+    {
+      "id": 37,
+      "app": "systeme.io",
+      "category": "Marketing, Ads, Email & Social",
+      "hint": "systeme.io (funnel builder)",
+      "description": "Campaigns",
+      "auth": "OAuth2",
+      "access": "Self-serve developer account",
+      "api": "REST/Graph APIs",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://systeme.io",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2",
+        "access": "Self-serve developer account",
+        "api": "REST/Graph APIs",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2",
+        "access": "Self-serve developer account",
+        "api": "REST/Graph APIs",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://systeme.io"
+      }
+    },
+    {
+      "id": 38,
+      "app": "Pinterest",
+      "category": "Marketing, Ads, Email & Social",
+      "hint": "developers.pinterest.com",
+      "description": "Campaigns",
+      "auth": "OAuth2",
+      "access": "Self-serve developer account",
+      "api": "REST/Graph APIs",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://developers.pinterest.com",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2",
+        "access": "Self-serve developer account",
+        "api": "REST/Graph APIs",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2",
+        "access": "Self-serve developer account",
+        "api": "REST/Graph APIs",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://developers.pinterest.com"
+      }
+    },
+    {
+      "id": 39,
+      "app": "Threads (Meta)",
+      "category": "Marketing, Ads, Email & Social",
+      "hint": "developers.facebook.com/docs/threads",
+      "description": "Campaigns",
+      "auth": "OAuth2",
+      "access": "Self-serve developer account",
+      "api": "REST/Graph APIs",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://developers.facebook.com/docs/threads",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2",
+        "access": "Self-serve developer account",
+        "api": "REST/Graph APIs",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2",
+        "access": "Self-serve developer account",
+        "api": "REST/Graph APIs",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://developers.facebook.com/documentation/threads"
+      }
+    },
+    {
+      "id": 40,
+      "app": "SendGrid",
+      "category": "Marketing, Ads, Email & Social",
+      "hint": "sendgrid.com",
+      "description": "Campaigns",
+      "auth": "OAuth2",
+      "access": "Self-serve developer account",
+      "api": "REST/Graph APIs",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://sendgrid.com",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2",
+        "access": "Self-serve developer account",
+        "api": "REST/Graph APIs",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2",
+        "access": "Self-serve developer account",
+        "api": "REST/Graph APIs",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://www.twilio.com/en-us/sendgrid"
+      }
+    },
+    {
+      "id": 41,
+      "app": "Shopify",
+      "category": "Ecommerce",
+      "hint": "shopify.dev",
+      "description": "Catalog, orders",
+      "auth": "API key/secret, OAuth2",
+      "access": "Self-serve sandbox",
+      "api": "REST/GraphQL",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://shopify.dev",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "API key/secret, OAuth2",
+        "access": "Self-serve sandbox",
+        "api": "REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "API key/secret, OAuth2",
+        "access": "Self-serve sandbox",
+        "api": "REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": 18,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://shopify.dev/docs"
+      }
+    },
+    {
+      "id": 42,
+      "app": "WooCommerce",
+      "category": "Ecommerce",
+      "hint": "woocommerce.com/document/woocommerce-rest-api",
+      "description": "Catalog, orders",
+      "auth": "API key/secret, OAuth2",
+      "access": "Self-serve sandbox",
+      "api": "REST/GraphQL",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://woocommerce.com/document/woocommerce-rest-api",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "API key/secret, OAuth2",
+        "access": "Self-serve sandbox",
+        "api": "REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "API key/secret, OAuth2",
+        "access": "Self-serve sandbox",
+        "api": "REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://woocommerce.com/document/woocommerce-rest-api/"
+      }
+    },
+    {
+      "id": 43,
+      "app": "BigCommerce",
+      "category": "Ecommerce",
+      "hint": "developer.bigcommerce.com",
+      "description": "Catalog, orders",
+      "auth": "API key/secret, OAuth2",
+      "access": "Self-serve sandbox",
+      "api": "REST/GraphQL",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://developer.bigcommerce.com",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "API key/secret, OAuth2",
+        "access": "Self-serve sandbox",
+        "api": "REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "API key/secret, OAuth2",
+        "access": "Self-serve sandbox",
+        "api": "REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://docs.bigcommerce.com/developer/docs/overview/quick-start"
+      }
+    },
+    {
+      "id": 44,
+      "app": "Salesforce Commerce Cloud",
+      "category": "Ecommerce",
+      "hint": "developer.salesforce.com/docs/commerce",
+      "description": "Catalog, orders",
+      "auth": "API key/secret, OAuth2",
+      "access": "Self-serve sandbox",
+      "api": "REST/GraphQL",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://developer.salesforce.com/docs/commerce",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "API key/secret, OAuth2",
+        "access": "Self-serve sandbox",
+        "api": "REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "API key/secret, OAuth2",
+        "access": "Self-serve sandbox",
+        "api": "REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "http-error",
+        "http": 403
+      }
+    },
+    {
+      "id": 45,
+      "app": "Magento (Adobe Commerce)",
+      "category": "Ecommerce",
+      "hint": "developer.adobe.com/commerce",
+      "description": "Catalog, orders",
+      "auth": "API key/secret, OAuth2",
+      "access": "Self-serve sandbox",
+      "api": "REST/GraphQL",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://developer.adobe.com/commerce",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "API key/secret, OAuth2",
+        "access": "Self-serve sandbox",
+        "api": "REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "API key/secret, OAuth2",
+        "access": "Self-serve sandbox",
+        "api": "REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://developer.adobe.com/commerce"
+      }
+    },
+    {
+      "id": 46,
+      "app": "Squarespace",
+      "category": "Ecommerce",
+      "hint": "developers.squarespace.com",
+      "description": "Catalog, orders",
+      "auth": "API key/secret, OAuth2",
+      "access": "Self-serve sandbox",
+      "api": "REST/GraphQL",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://developers.squarespace.com",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "API key/secret, OAuth2",
+        "access": "Self-serve sandbox",
+        "api": "REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "API key/secret, OAuth2",
+        "access": "Self-serve sandbox",
+        "api": "REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://developers.squarespace.com"
+      }
+    },
+    {
+      "id": 47,
+      "app": "Ecwid",
+      "category": "Ecommerce",
+      "hint": "api-docs.ecwid.com",
+      "description": "Catalog, orders",
+      "auth": "API key/secret, OAuth2",
+      "access": "Self-serve sandbox",
+      "api": "REST/GraphQL",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://api-docs.ecwid.com",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "API key/secret, OAuth2",
+        "access": "Self-serve sandbox",
+        "api": "REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "API key/secret, OAuth2",
+        "access": "Self-serve sandbox",
+        "api": "REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://docs.ecwid.com/"
+      }
+    },
+    {
+      "id": 48,
+      "app": "Gumroad",
+      "category": "Ecommerce",
+      "hint": "gumroad.com/api",
+      "description": "Catalog, orders",
+      "auth": "API key/secret, OAuth2",
+      "access": "Self-serve sandbox",
+      "api": "REST/GraphQL",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://gumroad.com/api",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "API key/secret, OAuth2",
+        "access": "Self-serve sandbox",
+        "api": "REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "API key/secret, OAuth2",
+        "access": "Self-serve sandbox",
+        "api": "REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://gumroad.com/api"
+      }
+    },
+    {
+      "id": 49,
+      "app": "Amazon Selling Partner",
+      "category": "Ecommerce",
+      "hint": "developer-docs.amazon.com/sp-api",
+      "description": "Catalog, orders",
+      "auth": "API key/secret, OAuth2",
+      "access": "Self-serve sandbox",
+      "api": "REST/GraphQL",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://developer-docs.amazon.com/sp-api",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "API key/secret, OAuth2",
+        "access": "Self-serve sandbox",
+        "api": "REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "API key/secret, OAuth2",
+        "access": "Self-serve sandbox",
+        "api": "REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://developer-docs.amazon/sp-api"
+      }
+    },
+    {
+      "id": 50,
+      "app": "fanbasis",
+      "category": "Ecommerce",
+      "hint": "fanbasis.com",
+      "description": "Catalog, orders",
+      "auth": "API key/secret, OAuth2",
+      "access": "Self-serve sandbox",
+      "api": "REST/GraphQL",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://fanbasis.com",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "API key/secret, OAuth2",
+        "access": "Self-serve sandbox",
+        "api": "REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "API key/secret, OAuth2",
+        "access": "Self-serve sandbox",
+        "api": "REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://commas.com/"
+      }
+    },
+    {
+      "id": 51,
+      "app": "DataForSEO",
+      "category": "Data, SEO & Scraping",
+      "hint": "docs.dataforseo.com",
+      "description": "Search intelligence",
+      "auth": "API key or bearer token",
+      "access": "Self-serve signup/trial",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://docs.dataforseo.com",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "API key or bearer token",
+        "access": "Self-serve signup/trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "API key or bearer token",
+        "access": "Self-serve signup/trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://docs.dataforseo.com/v3/"
+      }
+    },
+    {
+      "id": 52,
+      "app": "SE Ranking",
+      "category": "Data, SEO & Scraping",
+      "hint": "seranking.com/api",
+      "description": "Search intelligence",
+      "auth": "API key or bearer token",
+      "access": "Self-serve signup/trial",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://seranking.com/api",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "API key or bearer token",
+        "access": "Self-serve signup/trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "API key or bearer token",
+        "access": "Self-serve signup/trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "http-error",
+        "http": 404
+      }
+    },
+    {
+      "id": 53,
+      "app": "Ahrefs",
+      "category": "Data, SEO & Scraping",
+      "hint": "ahrefs.com/api",
+      "description": "Search intelligence",
+      "auth": "API key or bearer token",
+      "access": "Self-serve signup/trial",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://ahrefs.com/api",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "API key or bearer token",
+        "access": "Self-serve signup/trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "API key or bearer token",
+        "access": "Self-serve signup/trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://docs.ahrefs.com/"
+      }
+    },
+    {
+      "id": 54,
+      "app": "MrScraper",
+      "category": "Data, SEO & Scraping",
+      "hint": "docs.mrscraper.com",
+      "description": "Search intelligence",
+      "auth": "API key or bearer token",
+      "access": "Self-serve signup/trial",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://docs.mrscraper.com",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "API key or bearer token",
+        "access": "Self-serve signup/trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "API key or bearer token",
+        "access": "Self-serve signup/trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://docs.mrscraper.com/docs/getting-started/overview"
+      }
+    },
+    {
+      "id": 55,
+      "app": "Apify",
+      "category": "Data, SEO & Scraping",
+      "hint": "docs.apify.com",
+      "description": "Search intelligence",
+      "auth": "API key or bearer token",
+      "access": "Self-serve signup/trial",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://docs.apify.com",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "API key or bearer token",
+        "access": "Self-serve signup/trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "API key or bearer token",
+        "access": "Self-serve signup/trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://docs.apify.com"
+      }
+    },
+    {
+      "id": 56,
+      "app": "Firecrawl",
+      "category": "Data, SEO & Scraping",
+      "hint": "firecrawl.dev",
+      "description": "Search intelligence",
+      "auth": "API key or bearer token",
+      "access": "Self-serve signup/trial",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://firecrawl.dev",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "API key or bearer token",
+        "access": "Self-serve signup/trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "API key or bearer token",
+        "access": "Self-serve signup/trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://www.firecrawl.dev/"
+      }
+    },
+    {
+      "id": 57,
+      "app": "Bright Data",
+      "category": "Data, SEO & Scraping",
+      "hint": "brightdata.com",
+      "description": "Search intelligence",
+      "auth": "API key or bearer token",
+      "access": "Self-serve signup/trial",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://brightdata.com",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "API key or bearer token",
+        "access": "Self-serve signup/trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "API key or bearer token",
+        "access": "Self-serve signup/trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://brightdata.com"
+      }
+    },
+    {
+      "id": 58,
+      "app": "Sherlock",
+      "category": "Data, SEO & Scraping",
+      "hint": "github.com/sherlock-project/sherlock",
+      "description": "Search intelligence",
+      "auth": "API key or bearer token",
+      "access": "Self-serve signup/trial",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://github.com/sherlock-project/sherlock",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "API key or bearer token",
+        "access": "Self-serve signup/trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "API key or bearer token",
+        "access": "Self-serve signup/trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://github.com/sherlock-project/sherlock"
+      }
+    },
+    {
+      "id": 59,
+      "app": "Waterfall.io",
+      "category": "Data, SEO & Scraping",
+      "hint": "waterfall.io (contact/company intel)",
+      "description": "Search intelligence",
+      "auth": "API key or bearer token",
+      "access": "Self-serve signup/trial",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://waterfall.io",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "API key or bearer token",
+        "access": "Self-serve signup/trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "API key or bearer token",
+        "access": "Self-serve signup/trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://www.waterfall.io/"
+      }
+    },
+    {
+      "id": 60,
+      "app": "Clay",
+      "category": "Data, SEO & Scraping",
+      "hint": "clay.com",
+      "description": "Search intelligence",
+      "auth": "API key or bearer token",
+      "access": "Self-serve signup/trial",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://clay.com",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "API key or bearer token",
+        "access": "Self-serve signup/trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "API key or bearer token",
+        "access": "Self-serve signup/trial",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://www.clay.com/"
+      }
+    },
+    {
+      "id": 61,
+      "app": "GitHub",
+      "category": "Developer, Infra & Data Platforms",
+      "hint": "docs.github.com/rest",
+      "description": "Code, deployments",
+      "auth": "Personal/API token",
+      "access": "Self-serve",
+      "api": "Broad documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://docs.github.com/rest",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "Personal/API token",
+        "access": "Self-serve",
+        "api": "Broad documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "Personal/API token",
+        "access": "Self-serve",
+        "api": "Broad documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": 8,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://docs.github.com/en/rest"
+      }
+    },
+    {
+      "id": 62,
+      "app": "Vercel",
+      "category": "Developer, Infra & Data Platforms",
+      "hint": "vercel.com/docs/rest-api",
+      "description": "Code, deployments",
+      "auth": "Personal/API token",
+      "access": "Self-serve",
+      "api": "Broad documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://vercel.com/docs/rest-api",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "Personal/API token",
+        "access": "Self-serve",
+        "api": "Broad documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "Personal/API token",
+        "access": "Self-serve",
+        "api": "Broad documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://vercel.com/docs/rest-api"
+      }
+    },
+    {
+      "id": 63,
+      "app": "Netlify",
+      "category": "Developer, Infra & Data Platforms",
+      "hint": "docs.netlify.com/api",
+      "description": "Code, deployments",
+      "auth": "Personal/API token",
+      "access": "Self-serve",
+      "api": "Broad documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://docs.netlify.com/api",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "Personal/API token",
+        "access": "Self-serve",
+        "api": "Broad documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "Personal/API token",
+        "access": "Self-serve",
+        "api": "Broad documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/"
+      }
+    },
+    {
+      "id": 64,
+      "app": "Cloudflare",
+      "category": "Developer, Infra & Data Platforms",
+      "hint": "developers.cloudflare.com/api",
+      "description": "Code, deployments",
+      "auth": "Personal/API token",
+      "access": "Self-serve",
+      "api": "Broad documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://developers.cloudflare.com/api",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "Personal/API token",
+        "access": "Self-serve",
+        "api": "Broad documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "Personal/API token",
+        "access": "Self-serve",
+        "api": "Broad documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://developers.cloudflare.com/api/"
+      }
+    },
+    {
+      "id": 65,
+      "app": "Supabase",
+      "category": "Developer, Infra & Data Platforms",
+      "hint": "supabase.com/docs",
+      "description": "Code, deployments",
+      "auth": "Personal/API token",
+      "access": "Self-serve",
+      "api": "Broad documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://supabase.com/docs",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "Personal/API token",
+        "access": "Self-serve",
+        "api": "Broad documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "Personal/API token",
+        "access": "Self-serve",
+        "api": "Broad documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://supabase.com/docs"
+      }
+    },
+    {
+      "id": 66,
+      "app": "Neo4j",
+      "category": "Developer, Infra & Data Platforms",
+      "hint": "neo4j.com/docs/api",
+      "description": "Code, deployments",
+      "auth": "Personal/API token",
+      "access": "Self-serve",
+      "api": "Broad documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://neo4j.com/docs/api",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "Personal/API token",
+        "access": "Self-serve",
+        "api": "Broad documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "Personal/API token",
+        "access": "Self-serve",
+        "api": "Broad documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "http-error",
+        "http": 404
+      }
+    },
+    {
+      "id": 67,
+      "app": "Snowflake",
+      "category": "Developer, Infra & Data Platforms",
+      "hint": "docs.snowflake.com",
+      "description": "Code, deployments",
+      "auth": "Personal/API token",
+      "access": "Self-serve",
+      "api": "Broad documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://docs.snowflake.com",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "Personal/API token",
+        "access": "Self-serve",
+        "api": "Broad documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "Personal/API token",
+        "access": "Self-serve",
+        "api": "Broad documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://docs.snowflake.com/en/"
+      }
+    },
+    {
+      "id": 68,
+      "app": "MongoDB Atlas",
+      "category": "Developer, Infra & Data Platforms",
+      "hint": "mongodb.com/docs/atlas/api",
+      "description": "Code, deployments",
+      "auth": "Personal/API token",
+      "access": "Self-serve",
+      "api": "Broad documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://mongodb.com/docs/atlas/api",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "Personal/API token",
+        "access": "Self-serve",
+        "api": "Broad documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "Personal/API token",
+        "access": "Self-serve",
+        "api": "Broad documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://www.mongodb.com/docs/atlas/api/"
+      }
+    },
+    {
+      "id": 69,
+      "app": "Datadog",
+      "category": "Developer, Infra & Data Platforms",
+      "hint": "docs.datadoghq.com/api",
+      "description": "Code, deployments",
+      "auth": "Personal/API token",
+      "access": "Self-serve",
+      "api": "Broad documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://docs.datadoghq.com/api",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "Personal/API token",
+        "access": "Self-serve",
+        "api": "Broad documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "Personal/API token",
+        "access": "Self-serve",
+        "api": "Broad documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://docs.datadoghq.com/api/latest/"
+      }
+    },
+    {
+      "id": 70,
+      "app": "Sentry",
+      "category": "Developer, Infra & Data Platforms",
+      "hint": "docs.sentry.io/api",
+      "description": "Code, deployments",
+      "auth": "Personal/API token",
+      "access": "Self-serve",
+      "api": "Broad documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://docs.sentry.io/api",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "Personal/API token",
+        "access": "Self-serve",
+        "api": "Broad documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "Personal/API token",
+        "access": "Self-serve",
+        "api": "Broad documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://docs.sentry.io/api/"
+      }
+    },
+    {
+      "id": 71,
+      "app": "Notion",
+      "category": "Productivity & Project Management",
+      "hint": "developers.notion.com",
+      "description": "Documents",
+      "auth": "OAuth2",
+      "access": "Usually self-serve",
+      "api": "Documented REST/GraphQL",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://developers.notion.com",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2",
+        "access": "Usually self-serve",
+        "api": "Documented REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2",
+        "access": "Usually self-serve",
+        "api": "Documented REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": 11,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://developers.notion.com/guides/get-started/overview"
+      }
+    },
+    {
+      "id": 72,
+      "app": "Airtable",
+      "category": "Productivity & Project Management",
+      "hint": "airtable.com/developers",
+      "description": "Documents",
+      "auth": "OAuth2",
+      "access": "Usually self-serve",
+      "api": "Documented REST/GraphQL",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://airtable.com/developers",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2",
+        "access": "Usually self-serve",
+        "api": "Documented REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2",
+        "access": "Usually self-serve",
+        "api": "Documented REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": 10,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://airtable.com/developers"
+      }
+    },
+    {
+      "id": 73,
+      "app": "Linear",
+      "category": "Productivity & Project Management",
+      "hint": "developers.linear.app",
+      "description": "Documents",
+      "auth": "OAuth2",
+      "access": "Usually self-serve",
+      "api": "Documented REST/GraphQL",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://developers.linear.app",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2",
+        "access": "Usually self-serve",
+        "api": "Documented REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2",
+        "access": "Usually self-serve",
+        "api": "Documented REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": 14,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://linear.app/developers"
+      }
+    },
+    {
+      "id": 74,
+      "app": "Jira",
+      "category": "Productivity & Project Management",
+      "hint": "developer.atlassian.com",
+      "description": "Documents",
+      "auth": "OAuth2",
+      "access": "Usually self-serve",
+      "api": "Documented REST/GraphQL",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://developer.atlassian.com",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2",
+        "access": "Usually self-serve",
+        "api": "Documented REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2",
+        "access": "Usually self-serve",
+        "api": "Documented REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": 19,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://developer.atlassian.com"
+      }
+    },
+    {
+      "id": 75,
+      "app": "Asana",
+      "category": "Productivity & Project Management",
+      "hint": "developers.asana.com",
+      "description": "Documents",
+      "auth": "OAuth2",
+      "access": "Usually self-serve",
+      "api": "Documented REST/GraphQL",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://developers.asana.com",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2",
+        "access": "Usually self-serve",
+        "api": "Documented REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2",
+        "access": "Usually self-serve",
+        "api": "Documented REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": 15,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://developers.asana.com"
+      }
+    },
+    {
+      "id": 76,
+      "app": "Monday.com",
+      "category": "Productivity & Project Management",
+      "hint": "developer.monday.com",
+      "description": "Documents",
+      "auth": "OAuth2",
+      "access": "Usually self-serve",
+      "api": "Documented REST/GraphQL",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://developer.monday.com",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2",
+        "access": "Usually self-serve",
+        "api": "Documented REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2",
+        "access": "Usually self-serve",
+        "api": "Documented REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": 21,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://developer.monday.com"
+      }
+    },
+    {
+      "id": 77,
+      "app": "ClickUp",
+      "category": "Productivity & Project Management",
+      "hint": "clickup.com/api",
+      "description": "Documents",
+      "auth": "OAuth2",
+      "access": "Usually self-serve",
+      "api": "Documented REST/GraphQL",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://clickup.com/api",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2",
+        "access": "Usually self-serve",
+        "api": "Documented REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2",
+        "access": "Usually self-serve",
+        "api": "Documented REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": 12,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://developer.clickup.com/"
+      }
+    },
+    {
+      "id": 78,
+      "app": "Coda",
+      "category": "Productivity & Project Management",
+      "hint": "coda.io/developers",
+      "description": "Documents",
+      "auth": "OAuth2",
+      "access": "Usually self-serve",
+      "api": "Documented REST/GraphQL",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://coda.io/developers",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2",
+        "access": "Usually self-serve",
+        "api": "Documented REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2",
+        "access": "Usually self-serve",
+        "api": "Documented REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://coda.io/developers/apis/v1"
+      }
+    },
+    {
+      "id": 79,
+      "app": "Smartsheet",
+      "category": "Productivity & Project Management",
+      "hint": "smartsheet.com/developers",
+      "description": "Documents",
+      "auth": "OAuth2",
+      "access": "Usually self-serve",
+      "api": "Documented REST/GraphQL",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://smartsheet.com/developers",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2",
+        "access": "Usually self-serve",
+        "api": "Documented REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2",
+        "access": "Usually self-serve",
+        "api": "Documented REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://developers.smartsheet.com/"
+      }
+    },
+    {
+      "id": 80,
+      "app": "Harvest",
+      "category": "Productivity & Project Management",
+      "hint": "harvestapp.com (help.getharvest.com/api-v2)",
+      "description": "Documents",
+      "auth": "OAuth2",
+      "access": "Usually self-serve",
+      "api": "Documented REST/GraphQL",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://harvestapp.com",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2",
+        "access": "Usually self-serve",
+        "api": "Documented REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2",
+        "access": "Usually self-serve",
+        "api": "Documented REST/GraphQL",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://www.getharvest.com/"
+      }
+    },
+    {
+      "id": 81,
+      "app": "Stripe",
+      "category": "Finance & Fintech",
+      "hint": "stripe.com/docs/api",
+      "description": "Payments",
+      "auth": "OAuth2, API key",
+      "access": "Paid, compliance",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://stripe.com/docs/api",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2, API key",
+        "access": "Paid, compliance",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2, API key",
+        "access": "Paid, compliance",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": 17,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://docs.stripe.com/api"
+      }
+    },
+    {
+      "id": 82,
+      "app": "Plaid",
+      "category": "Finance & Fintech",
+      "hint": "plaid.com/docs",
+      "description": "Payments",
+      "auth": "OAuth2, API key",
+      "access": "Paid, compliance",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://plaid.com/docs",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2, API key",
+        "access": "Paid, compliance",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2, API key",
+        "access": "Paid, compliance",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://plaid.com/docs/"
+      }
+    },
+    {
+      "id": 83,
+      "app": "Binance",
+      "category": "Finance & Fintech",
+      "hint": "binance-docs.github.io",
+      "description": "Payments",
+      "auth": "OAuth2, API key",
+      "access": "Paid, compliance",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://binance-docs.github.io",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2, API key",
+        "access": "Paid, compliance",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2, API key",
+        "access": "Paid, compliance",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "http-error",
+        "http": 404
+      }
+    },
+    {
+      "id": 84,
+      "app": "Paygent Connect",
+      "category": "Finance & Fintech",
+      "hint": "paygent (NMI-powered)",
+      "description": "Payments",
+      "auth": "OAuth2, API key",
+      "access": "Paid, compliance",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2, API key",
+        "access": "Paid, compliance",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2, API key",
+        "access": "Paid, compliance",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "no-url"
+      }
+    },
+    {
+      "id": 85,
+      "app": "iPayX",
+      "category": "Finance & Fintech",
+      "hint": "ipayx.ai/docs",
+      "description": "Payments",
+      "auth": "OAuth2, API key",
+      "access": "Paid, compliance",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://ipayx.ai/docs",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2, API key",
+        "access": "Paid, compliance",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2, API key",
+        "access": "Paid, compliance",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://www.ipayx.ai/docs"
+      }
+    },
+    {
+      "id": 86,
+      "app": "QuickBooks",
+      "category": "Finance & Fintech",
+      "hint": "developer.intuit.com",
+      "description": "Payments",
+      "auth": "OAuth2, API key",
+      "access": "Paid, compliance",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://developer.intuit.com",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2, API key",
+        "access": "Paid, compliance",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2, API key",
+        "access": "Paid, compliance",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "http-error",
+        "http": 405
+      }
+    },
+    {
+      "id": 87,
+      "app": "Xero",
+      "category": "Finance & Fintech",
+      "hint": "developer.xero.com",
+      "description": "Payments",
+      "auth": "OAuth2, API key",
+      "access": "Paid, compliance",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://developer.xero.com",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2, API key",
+        "access": "Paid, compliance",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2, API key",
+        "access": "Paid, compliance",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://developer.xero.com"
+      }
+    },
+    {
+      "id": 88,
+      "app": "Brex",
+      "category": "Finance & Fintech",
+      "hint": "developer.brex.com",
+      "description": "Payments",
+      "auth": "OAuth2, API key",
+      "access": "Paid, compliance",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://developer.brex.com",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2, API key",
+        "access": "Paid, compliance",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2, API key",
+        "access": "Paid, compliance",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://developer.brex.com"
+      }
+    },
+    {
+      "id": 89,
+      "app": "Ramp",
+      "category": "Finance & Fintech",
+      "hint": "docs.ramp.com",
+      "description": "Payments",
+      "auth": "OAuth2, API key",
+      "access": "Paid, compliance",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://docs.ramp.com",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2, API key",
+        "access": "Paid, compliance",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2, API key",
+        "access": "Paid, compliance",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://docs.ramp.com"
+      }
+    },
+    {
+      "id": 90,
+      "app": "PitchBook",
+      "category": "Finance & Fintech",
+      "hint": "pitchbook.com (research API)",
+      "description": "Payments",
+      "auth": "OAuth2, API key",
+      "access": "Paid, compliance",
+      "api": "Documented REST",
+      "mcp": "No first-party MCP signal",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://pitchbook.com",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "OAuth2, API key",
+        "access": "Paid, compliance",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "OAuth2, API key",
+        "access": "Paid, compliance",
+        "api": "Documented REST",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "http-error",
+        "http": 403
+      }
+    },
+    {
+      "id": 91,
+      "app": "NotebookLM",
+      "category": "AI, Research & Media-native",
+      "hint": "cloud.google.com/gemini (Enterprise API)",
+      "description": "AI-native workflows",
+      "auth": "API key, OAuth2",
+      "access": "Self-serve trial",
+      "api": "REST/CLI/MCP mix",
+      "mcp": "MCP is explicit only where named",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://cloud.google.com/gemini",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "API key, OAuth2",
+        "access": "Self-serve trial",
+        "api": "REST/CLI/MCP mix",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "API key, OAuth2",
+        "access": "Self-serve trial",
+        "api": "REST/CLI/MCP mix",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://cloud.google.com/ai/gemini"
+      }
+    },
+    {
+      "id": 92,
+      "app": "Otter AI",
+      "category": "AI, Research & Media-native",
+      "hint": "help.otter.ai (MCP server)",
+      "description": "AI-native workflows",
+      "auth": "API key, OAuth2",
+      "access": "Self-serve trial",
+      "api": "REST/CLI/MCP mix",
+      "mcp": "MCP is explicit only where named",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://help.otter.ai",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "API key, OAuth2",
+        "access": "Self-serve trial",
+        "api": "REST/CLI/MCP mix",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "API key, OAuth2",
+        "access": "Self-serve trial",
+        "api": "REST/CLI/MCP mix",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "http-error",
+        "http": 403
+      }
+    },
+    {
+      "id": 93,
+      "app": "Fathom",
+      "category": "AI, Research & Media-native",
+      "hint": "fathom.video",
+      "description": "AI-native workflows",
+      "auth": "API key, OAuth2",
+      "access": "Self-serve trial",
+      "api": "REST/CLI/MCP mix",
+      "mcp": "MCP is explicit only where named",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://fathom.video",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "API key, OAuth2",
+        "access": "Self-serve trial",
+        "api": "REST/CLI/MCP mix",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "API key, OAuth2",
+        "access": "Self-serve trial",
+        "api": "REST/CLI/MCP mix",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://www.fathom.ai/"
+      }
+    },
+    {
+      "id": 94,
+      "app": "Consensus",
+      "category": "AI, Research & Media-native",
+      "hint": "consensus.app (OAuth requested)",
+      "description": "AI-native workflows",
+      "auth": "API key, OAuth2",
+      "access": "Self-serve trial",
+      "api": "REST/CLI/MCP mix",
+      "mcp": "MCP is explicit only where named",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://consensus.app",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "API key, OAuth2",
+        "access": "Self-serve trial",
+        "api": "REST/CLI/MCP mix",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "API key, OAuth2",
+        "access": "Self-serve trial",
+        "api": "REST/CLI/MCP mix",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "http-error",
+        "http": 403
+      }
+    },
+    {
+      "id": 95,
+      "app": "Reducto",
+      "category": "AI, Research & Media-native",
+      "hint": "reducto.ai (document parsing)",
+      "description": "AI-native workflows",
+      "auth": "API key, OAuth2",
+      "access": "Self-serve trial",
+      "api": "REST/CLI/MCP mix",
+      "mcp": "MCP is explicit only where named",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://reducto.ai",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "API key, OAuth2",
+        "access": "Self-serve trial",
+        "api": "REST/CLI/MCP mix",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "API key, OAuth2",
+        "access": "Self-serve trial",
+        "api": "REST/CLI/MCP mix",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://reducto.ai"
+      }
+    },
+    {
+      "id": 96,
+      "app": "Devin",
+      "category": "AI, Research & Media-native",
+      "hint": "docs.devin.ai (MCP)",
+      "description": "AI-native workflows",
+      "auth": "API key, OAuth2",
+      "access": "Self-serve trial",
+      "api": "REST/CLI/MCP mix",
+      "mcp": "MCP is explicit only where named",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://docs.devin.ai",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "API key, OAuth2",
+        "access": "Self-serve trial",
+        "api": "REST/CLI/MCP mix",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "API key, OAuth2",
+        "access": "Self-serve trial",
+        "api": "REST/CLI/MCP mix",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://docs.devin.ai/get-started/devin-intro"
+      }
+    },
+    {
+      "id": 97,
+      "app": "higgsfield",
+      "category": "AI, Research & Media-native",
+      "hint": "higgsfield.ai/cli (content suite)",
+      "description": "AI-native workflows",
+      "auth": "API key, OAuth2",
+      "access": "Self-serve trial",
+      "api": "REST/CLI/MCP mix",
+      "mcp": "MCP is explicit only where named",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://higgsfield.ai/cli",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "API key, OAuth2",
+        "access": "Self-serve trial",
+        "api": "REST/CLI/MCP mix",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "API key, OAuth2",
+        "access": "Self-serve trial",
+        "api": "REST/CLI/MCP mix",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://higgsfield.ai/cli"
+      }
+    },
+    {
+      "id": 98,
+      "app": "Mermaid CLI",
+      "category": "AI, Research & Media-native",
+      "hint": "github.com/mermaid-js/mermaid-cli",
+      "description": "AI-native workflows",
+      "auth": "API key, OAuth2",
+      "access": "Self-serve trial",
+      "api": "REST/CLI/MCP mix",
+      "mcp": "MCP is explicit only where named",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://github.com/mermaid-js/mermaid-cli",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "API key, OAuth2",
+        "access": "Self-serve trial",
+        "api": "REST/CLI/MCP mix",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "API key, OAuth2",
+        "access": "Self-serve trial",
+        "api": "REST/CLI/MCP mix",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://github.com/mermaid-js/mermaid-cli"
+      }
+    },
+    {
+      "id": 99,
+      "app": "YouTube Transcript",
+      "category": "AI, Research & Media-native",
+      "hint": "transcriptapi.com",
+      "description": "AI-native workflows",
+      "auth": "API key, OAuth2",
+      "access": "Self-serve trial",
+      "api": "REST/CLI/MCP mix",
+      "mcp": "MCP is explicit only where named",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://transcriptapi.com",
+      "evidence_grade": "high",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "API key, OAuth2",
+        "access": "Self-serve trial",
+        "api": "REST/CLI/MCP mix",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "API key, OAuth2",
+        "access": "Self-serve trial",
+        "api": "REST/CLI/MCP mix",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://transcriptapi.com"
+      }
+    },
+    {
+      "id": 100,
+      "app": "Grain",
+      "category": "AI, Research & Media-native",
+      "hint": "grain.com (meeting notes)",
+      "description": "AI-native workflows",
+      "auth": "API key, OAuth2",
+      "access": "Self-serve trial",
+      "api": "REST/CLI/MCP mix",
+      "mcp": "MCP is explicit only where named",
+      "verdict": "Toolkit candidate; validate access",
+      "evidence": "https://grain.com",
+      "evidence_grade": "medium",
+      "source_note": "Offline deterministic output for reviewer reproducibility",
+      "first_pass": {
+        "auth": "API key, OAuth2",
+        "access": "Self-serve trial",
+        "api": "REST/CLI/MCP mix",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "final": {
+        "auth": "API key, OAuth2",
+        "access": "Self-serve trial",
+        "api": "REST/CLI/MCP mix",
+        "verdict": "Toolkit candidate; validate access"
+      },
+      "human_follow_up": true,
+      "composio_demand_rank": null,
+      "probe": {
+        "status": "reachable",
+        "http": 200,
+        "final_url": "https://grain.com"
+      }
+    }
+  ],
+  "stats": {
+    "total": 100,
+    "categories": {
+      "CRM & Sales": 10,
+      "Support & Helpdesk": 10,
+      "Communications & Messaging": 10,
+      "Marketing, Ads, Email & Social": 10,
+      "Ecommerce": 10,
+      "Data, SEO & Scraping": 10,
+      "Developer, Infra & Data Platforms": 10,
+      "Productivity & Project Management": 10,
+      "Finance & Fintech": 10,
+      "AI, Research & Media-native": 10
+    },
+    "auth_families": {
+      "OAuth2": 82,
+      "API key/token": 91,
+      "Other/signed/none": 18
+    },
+    "access": {
+      "self-serve signal": 78,
+      "review/admin/paid caveat": 78
+    },
+    "mcp_named": 2,
+    "evidence_grade": {
+      "medium": 44,
+      "high": 56
+    },
+    "human_follow_up": 100
+  }
+}

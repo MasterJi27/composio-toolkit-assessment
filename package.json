@@ -1,0 +1,23 @@
+{
+  "name": "new-project",
+  "version": "1.0.0",
+  "description": "This repository is the take-home submission package for the AI Product Ops Intern assessment. The deliverable is the self-contained case study at [`site/index.html`](site/index.html), generated from a 100-app research dataset.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@ai-sdk/anthropic": "^4.0.15",
+    "@composio/core": "^0.14.0",
+    "@composio/vercel": "^0.11.1",
+    "@types/node": "^26.1.1",
+    "ai": "^7.0.29",
+    "dotenv": "^17.4.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^7.0.2"
+  }
+}
