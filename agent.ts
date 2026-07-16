@@ -1,28 +1,38 @@
-import { google } from "@ai-sdk/google";
-import { generateText } from "ai";
-import { createComposioToolSet } from "@composio/core";
+// agent.ts — Vercel AI SDK + Composio
 
-// Initialize Composio ToolSet
-const composioToolSet = createComposioToolSet({
-    apiKey: process.env.COMPOSIO_API_KEY,
-});
+import { google } from "@ai-sdk/google";
+import { Composio } from "@composio/core";
+import { VercelProvider } from "@composio/vercel";
+import { stepCountIs, streamText } from "ai";
+import * as dotenv from "dotenv";
+
+dotenv.config();
 
 async function main() {
-    // Get GitHub tools from Composio
-    const tools = await composioToolSet.getTools({ actions: ["github_star_a_repository_for_the_authenticated_user"] });
+  // Initialize Composio with the VercelProvider (matching the tutorial)
+  const composio = new Composio({ 
+    provider: new VercelProvider(),
+    apiKey: process.env.COMPOSIO_API_KEY
+  });
+  
+  const userId = "user_z8lchl";
 
-    console.log("Running agent with Gemini...");
+  // Create a tool router session
+  const session = await composio.create(userId);
+  const tools = await session.tools();
 
-    // Execute the agent
-    const result = await generateText({
-        model: google("gemini-2.5-pro"),
-        prompt: "Star the composiohq/composio repo on GitHub",
-        tools: tools,
-        maxSteps: 5
-    });
+  console.log("Running agent with Gemini and Composio Tool Router...");
 
-    console.log("\nAgent response:");
-    console.log(result.text);
+  const stream = await streamText({
+    model: google("gemini-1.5-pro"), // Using Gemini since you have the Gemini API key
+    prompt: "Star the composiohq/composio repo on GitHub",
+    stopWhen: stepCountIs(10),
+    tools,
+  });
+
+  for await (const textPart of stream.textStream) {
+    process.stdout.write(textPart);
+  }
 }
 
 main().catch(console.error);
