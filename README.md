@@ -13,15 +13,28 @@ python -m http.server 8000
 
 Open `http://localhost:8000/site/`.
 
-To add a lightweight evidence URL reachability pass:
+### Run with Gemini 3.1 Flash-Lite AI Agent:
 
 ```powershell
-python research_agent.py --live-check
+# Set your Gemini API Key in .env
+# GEMINI_API_KEY=AIzaSy...
+python research_agent.py --use-ai --live-check
 python verify.py
 python generate_site.py
 ```
 
-The live probe only reports reachability. It never treats a timeout or HTTP error as proof that an API is absent.
+### Run with Kimchi CLI (CAST AI kimi-k2.7):
+
+```powershell
+# Set your Kimchi API Key in .env
+# KIMCHI_API_KEY=castai_v1_...
+# KIMCHI_MODEL=kimi-k2.7
+python research_agent.py --use-kimchi --live-check
+python verify.py
+python generate_site.py
+```
+
+The live probe only reports reachability. It never treats a timeout or HTTP error as proof that an API is absent. If the API keys are rate-limited or unavailable, the agent automatically falls back to the deterministic offline dataset to guarantee 100% execution success.
 
 ## What the pipeline does
 

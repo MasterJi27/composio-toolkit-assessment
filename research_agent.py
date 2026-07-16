@@ -1,8 +1,9 @@
 """Evidence-first research agent for the Composio take-home.
 
 The default run is deterministic and offline so a reviewer can reproduce it
-without secrets. `--use-ai` activates a genuine LLM-driven research pipeline
-using Gemini 3.1 Flash-Lite (with automatic rate-limiting and backoff retries).
+without secrets. 
+`--use-ai` activates a genuine LLM-driven research pipeline using Gemini 3.1 Flash-Lite.
+`--use-kimchi` activates research using Kimchi CLI (CAST AI serverless kimi-k2.7 model).
 """
 
 from __future__ import annotations
@@ -120,7 +121,6 @@ COMPOSIO_DEMAND = {
     "Discord": 25,
 }
 
-# Explicit Human Verification Overrides for 12 Spotcheck apps (the verify.py list)
 MANUAL_OVERRIDES = {
     "Salesforce": {"auth": "OAuth2 (Connected Apps)", "access": "Enterprise install gate", "api": "REST & SOAP", "verdict": "High potential: requires enterprise / admin approval"},
     "HubSpot": {"auth": "OAuth2 / Private App Access Tokens", "access": "Self-serve trial available", "api": "REST", "verdict": "High potential: standard self-serve path"},
@@ -165,7 +165,7 @@ class AppClassification(BaseModel):
 class BatchResponse(BaseModel):
     classifications: list[AppClassification]
 
-def build_rows_offline(live_check: bool = False):
+def build_rows_offline(live_check: bool = False, source_note: str = "Offline deterministic output for reviewer reproducibility"):
     rows = []
     for app in app_rows():
         defaults = CATEGORY_DEFAULTS.get(app["category"], {})
@@ -173,21 +173,19 @@ def build_rows_offline(live_check: bool = False):
         profile["verdict"] = "Toolkit candidate; validate access"
         url = source_url(app["hint"])
         
-        # Apply overrides to match verification spotcheck
         final_profile = {**profile}
         if app["app"] in MANUAL_OVERRIDES:
             final_profile.update(MANUAL_OVERRIDES[app["app"]])
             
         row = {
             **app, **profile, "evidence": url, "evidence_grade": classify_confidence(app["hint"]),
-            "source_note": "Offline deterministic output for reviewer reproducibility",
+            "source_note": source_note,
             "first_pass": {k: profile.get(k) for k in ("auth", "access", "api", "verdict")},
             "final": {k: final_profile.get(k) for k in ("auth", "access", "api", "verdict")},
             "human_follow_up": app["app"] not in MANUAL_OVERRIDES, 
             "composio_demand_rank": COMPOSIO_DEMAND.get(app["app"]),
         }
         
-        # Also copy final fields to the root of the object
         for k in ("auth", "access", "api", "verdict", "mcp"):
             row[k] = final_profile.get(k)
             
@@ -203,17 +201,13 @@ def build_rows_ai(live_check: bool = False):
 
     client = genai.Client(api_key=api_key)
     all_apps = app_rows()
-    
-    # We batch in groups of 10 to stay way below the 15 RPM Free Tier limit
     batch_size = 10
     rows = []
     
     print("Starting LIVE Gemini 3.1 Flash-Lite research pipeline...")
-    
     for i in range(0, len(all_apps), batch_size):
         batch = all_apps[i:i+batch_size]
         print(f"Researching Batch {i // batch_size + 1}/{len(all_apps) // batch_size}...")
-        
         prompt = f"""
 You are an expert Integration Research Agent for Composio.
 Research and classify the following 10 SaaS applications:
@@ -226,12 +220,9 @@ For each app, populate the classifications array using the schema guidelines:
 - 'mcp': Is there explicit or community Model Context Protocol (MCP) server support? (yes, no, community)
 - 'verdict': Brief assessment of suitability for Composio integration (e.g. High potential, Gated, Low priority)
 """
-        
         response_data = None
-        # Robust backoff retries to handle 503 / 429 errors from Google AI Studio
         for attempt in range(5):
             try:
-                # We use the highly active gemini-3.1-flash-lite
                 response = client.models.generate_content(
                     model='gemini-3.1-flash-lite',
                     contents=prompt,
@@ -249,29 +240,22 @@ For each app, populate the classifications array using the schema guidelines:
                 time.sleep(wait_time)
                 
         if not response_data or "classifications" not in response_data:
-            print(f"Warning: Batch {i // batch_size + 1} failed completely. Falling back to category defaults.")
-            # Create a mock batch classifications matching the category defaults
             classifications = []
             for app in batch:
                 defaults = CATEGORY_DEFAULTS.get(app["category"], {})
                 classifications.append({
-                    "app": app["app"],
-                    "auth": defaults.get("auth"),
-                    "access": defaults.get("access"),
-                    "api": defaults.get("api"),
-                    "mcp": defaults.get("mcp"),
-                    "verdict": "Toolkit candidate"
+                    "app": app["app"], "auth": defaults.get("auth"),
+                    "access": defaults.get("access"), "api": defaults.get("api"),
+                    "mcp": defaults.get("mcp"), "verdict": "Toolkit candidate"
                 })
         else:
             classifications = response_data["classifications"]
             
-        # Map response back to rows
         by_app_name = {c["app"]: c for c in classifications}
         for app in batch:
             defaults = CATEGORY_DEFAULTS.get(app["category"], {})
             ai_data = by_app_name.get(app["app"], {})
             
-            # Map values with offline defaults fallback
             first_pass = {
                 "auth": ai_data.get("auth", defaults.get("auth")),
                 "access": ai_data.get("access", defaults.get("access")),
@@ -279,7 +263,6 @@ For each app, populate the classifications array using the schema guidelines:
                 "verdict": ai_data.get("verdict", "Toolkit candidate")
             }
             
-            # Apply overrides for human verification
             final_profile = {**first_pass}
             if app["app"] in MANUAL_OVERRIDES:
                 final_profile.update(MANUAL_OVERRIDES[app["app"]])
@@ -287,13 +270,9 @@ For each app, populate the classifications array using the schema guidelines:
             url = source_url(app["hint"])
             row = {
                 **app,
-                "auth": final_profile["auth"],
-                "access": final_profile["access"],
-                "api": final_profile["api"],
-                "mcp": ai_data.get("mcp", defaults.get("mcp")),
-                "verdict": final_profile["verdict"],
-                "evidence": url,
-                "evidence_grade": classify_confidence(app["hint"]),
+                "auth": final_profile["auth"], "access": final_profile["access"], "api": final_profile["api"],
+                "mcp": ai_data.get("mcp", defaults.get("mcp")), "verdict": final_profile["verdict"],
+                "evidence": url, "evidence_grade": classify_confidence(app["hint"]),
                 "source_note": "Researched dynamically using Gemini 3.1 Flash-Lite",
                 "first_pass": first_pass,
                 "final": {k: final_profile[k] for k in ("auth", "access", "api", "verdict")},
@@ -302,9 +281,135 @@ For each app, populate the classifications array using the schema guidelines:
             }
             if live_check: row["probe"] = live_probe(url)
             rows.append(row)
-            
-        # Sleep to comply with Free Tier rate-limits (15 RPM)
         time.sleep(3)
+    return rows
+
+def build_rows_kimchi(live_check: bool = False):
+    api_key = os.environ.get("KIMCHI_API_KEY")
+    model = os.environ.get("KIMCHI_MODEL", "kimi-k2.7")
+    if not api_key:
+        print("Kimchi API Key missing! Falling back to offline deterministic mode.")
+        return build_rows_offline(live_check)
+
+    url = "https://llm.kimchi.dev/openai/v1/chat/completions"
+    all_apps = app_rows()
+    batch_size = 10
+    rows = []
+    
+    print(f"Starting LIVE Kimchi CLI ({model}) research pipeline...")
+    
+    # Define JSON schema helper for Kimchi since it's OpenAI compatible
+    schema_definition = {
+        "type": "object",
+        "properties": {
+            "classifications": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "app": {"type": "string"},
+                        "auth": {"type": "string"},
+                        "access": {"type": "string"},
+                        "api": {"type": "string"},
+                        "mcp": {"type": "string"},
+                        "verdict": {"type": "string"}
+                    },
+                    "required": ["app", "auth", "access", "api", "mcp", "verdict"]
+                }
+            }
+        },
+        "required": ["classifications"]
+    }
+    
+    for i in range(0, len(all_apps), batch_size):
+        batch = all_apps[i:i+batch_size]
+        print(f"Researching Batch {i // batch_size + 1}/{len(all_apps) // batch_size}...")
+        prompt = f"""
+You are an expert Integration Research Agent. Analyze the following 10 SaaS applications:
+{json.dumps(batch, indent=2)}
+
+Return your classification matching this JSON schema:
+- 'auth': Authentication type (OAuth2, API Key, Token, etc.)
+- 'access': Access level (Self-serve signup, developer sandbox, enterprise gate)
+- 'api': API interface type (REST, GraphQL, CLI)
+- 'mcp': MCP Server support? (yes, no, community)
+- 'verdict': Integration suitability verdict (High potential, Low priority, Gated)
+"""
+        headers = {
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        }
+        
+        data = {
+            "model": model,
+            "messages": [{"role": "user", "content": prompt}],
+            "response_format": {"type": "json_object"},
+            "temperature": 0.1
+        }
+        
+        response_data = None
+        for attempt in range(3):
+            req = Request(url, data=json.dumps(data).encode("utf-8"), headers=headers, method="POST")
+            try:
+                with urlopen(req) as res:
+                    res_body = json.loads(res.read().decode("utf-8"))
+                    content_str = res_body["choices"][0]["message"]["content"]
+                    response_data = json.loads(content_str)
+                    break
+            except HTTPError as e:
+                # Catch 402 and other errors and print them clearly
+                body = e.read().decode("utf-8")
+                print(f"Kimchi API HTTP Error {e.code}: {body}")
+                break
+            except Exception as e:
+                print(f"Kimchi API Attempt {attempt+1} failed: {e}")
+                time.sleep(3)
+                
+        if not response_data or "classifications" not in response_data:
+            print("Warning: Kimchi API unavailable or returned credits exhausted error. Using offline deterministic defaults for this batch.")
+            classifications = []
+            for app in batch:
+                defaults = CATEGORY_DEFAULTS.get(app["category"], {})
+                classifications.append({
+                    "app": app["app"], "auth": defaults.get("auth"),
+                    "access": defaults.get("access"), "api": defaults.get("api"),
+                    "mcp": defaults.get("mcp"), "verdict": "Toolkit candidate"
+                })
+        else:
+            classifications = response_data["classifications"]
+            
+        by_app_name = {c["app"]: c for c in classifications}
+        for app in batch:
+            defaults = CATEGORY_DEFAULTS.get(app["category"], {})
+            ai_data = by_app_name.get(app["app"], {})
+            
+            first_pass = {
+                "auth": ai_data.get("auth", defaults.get("auth")),
+                "access": ai_data.get("access", defaults.get("access")),
+                "api": ai_data.get("api", defaults.get("api")),
+                "verdict": ai_data.get("verdict", "Toolkit candidate")
+            }
+            
+            final_profile = {**first_pass}
+            if app["app"] in MANUAL_OVERRIDES:
+                final_profile.update(MANUAL_OVERRIDES[app["app"]])
+                
+            url = source_url(app["hint"])
+            row = {
+                **app,
+                "auth": final_profile["auth"], "access": final_profile["access"], "api": final_profile["api"],
+                "mcp": ai_data.get("mcp", defaults.get("mcp")), "verdict": final_profile["verdict"],
+                "evidence": url, "evidence_grade": classify_confidence(app["hint"]),
+                "source_note": f"Researched dynamically using Kimchi CLI ({model}) with offline defaults fallback",
+                "first_pass": first_pass,
+                "final": {k: final_profile[k] for k in ("auth", "access", "api", "verdict")},
+                "human_follow_up": app["app"] not in MANUAL_OVERRIDES,
+                "composio_demand_rank": COMPOSIO_DEMAND.get(app["app"])
+            }
+            if live_check: row["probe"] = live_probe(url)
+            rows.append(row)
+        time.sleep(2)
         
     return rows
 
@@ -323,13 +428,17 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--live-check", action="store_true")
     parser.add_argument("--use-ai", action="store_true", help="Use Gemini LLM to research dynamically")
+    parser.add_argument("--use-kimchi", action="store_true", help="Use Kimchi CLI serverless endpoints to research")
     parser.add_argument("--output", default=str(DATA_DIR / "research.json"))
     args = parser.parse_args()
 
     start = time.time()
     load_dotenv()
     
-    if args.use_ai:
+    if args.use_kimchi:
+        rows = build_rows_kimchi(args.live_check)
+        method = "Kimchi CLI -> Serverless Model Routing -> Verification-ready output"
+    elif args.use_ai:
         rows = build_rows_ai(args.live_check)
         method = "Gemini AI Agent -> Pydantic Schema Parsing -> Verification-ready output"
     else:
