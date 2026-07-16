@@ -8,10 +8,10 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 # Copy project files
 COPY pyproject.toml .
 COPY .env.example .env
-COPY backend/ backend/
-COPY agents/ agents/
+COPY services/ backend/
+COPY intelligence/ agents/
 COPY research/ research/
-COPY verification/ verification/
+COPY evaluation/ verification/
 COPY cli/ cli/
 COPY reports/ reports/
 

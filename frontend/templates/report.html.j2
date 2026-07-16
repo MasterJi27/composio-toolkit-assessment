@@ -3,211 +3,469 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Composio Product Research Platform</title>
+  <title>SaaS Toolkit & Integration Audit</title>
   <script>{{ tailwind_js|safe }}</script>
-  <script>{{ chart_js|safe }}</script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+    
     body { 
-      font-family: 'Plus Jakarta Sans', sans-serif; 
-      background-color: #030712; 
-      color: #f3f4f6; 
-      background-image: 
-        radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.1) 0px, transparent 50%);
-      background-attachment: fixed;
+      font-family: 'Outfit', sans-serif; 
+      background-color: #050811; 
+      color: #e2e8f0; 
+      overflow-x: hidden;
     }
-    .glass-card {
-      background: rgba(17, 24, 39, 0.7);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 20px;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Ambient animated background orbs */
+    .bg-orb {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      filter: blur(140px);
+      z-index: -10;
+      opacity: 0.15;
+      pointer-events: none;
+      animation: float 25s infinite alternate;
     }
-    .glass-card:hover {
-      background: rgba(31, 41, 55, 0.8);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+    .orb-1 {
+      background: radial-gradient(circle, #6366f1 0%, transparent 80%);
+      top: -10%;
+      left: -10%;
+    }
+    .orb-2 {
+      background: radial-gradient(circle, #ec4899 0%, transparent 80%);
+      bottom: -10%;
+      right: -10%;
+      animation-delay: -5s;
+    }
+    .orb-3 {
+      background: radial-gradient(circle, #10b981 0%, transparent 80%);
+      top: 40%;
+      left: 50%;
+      width: 400px;
+      height: 400px;
+      animation-delay: -10s;
+    }
+
+    @keyframes float {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(50px, 30px) scale(1.1); }
+      100% { transform: translate(-20px, -40px) scale(0.95); }
+    }
+
+    /* Neon Glassmorphism Card Style */
+    .neo-card {
+      background: rgba(10, 15, 30, 0.45);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .neo-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.05),
+        transparent
+      );
+      transition: 0.5s;
+    }
+    .neo-card:hover::before {
+      left: 100%;
+    }
+    .neo-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2), 0 0 20px rgba(59, 130, 246, 0.1);
+      border-color: rgba(99, 102, 241, 0.3);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 25px rgba(99, 102, 241, 0.15);
     }
+
+    /* Premium interactive sidebar buttons */
+    .sidebar-btn {
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+    .sidebar-btn::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 3px;
+      height: 0;
+      background: #6366f1;
+      border-radius: 0 4px 4px 0;
+      transition: all 0.3s ease;
+    }
+    .sidebar-btn.active::after {
+      height: 60%;
+    }
+    .sidebar-btn.active {
+      background: linear-gradient(90deg, rgba(99, 102, 241, 0.12) 0%, transparent 100%);
+      color: #a5b4fc;
+    }
+
+    /* Custom high-tech table styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(15, 23, 42, 0.3);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(99, 102, 241, 0.2);
+      border-radius: 99px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(99, 102, 241, 0.4);
+    }
+
     .badge {
       display: inline-flex;
       align-items: center;
-      padding: 6px 12px;
-      border-radius: 9999px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+      font-family: 'Space Grotesk', sans-serif;
     }
-    .badge-blue { background: linear-gradient(135deg, rgba(37,99,235,0.2), rgba(29,78,216,0.1)); color: #60a5fa; border: 1px solid rgba(59,130,246,0.3); }
-    .badge-green { background: linear-gradient(135deg, rgba(5,150,105,0.2), rgba(4,120,87,0.1)); color: #34d399; border: 1px solid rgba(16,185,129,0.3); }
-    .badge-amber { background: linear-gradient(135deg, rgba(217,119,6,0.2), rgba(180,83,9,0.1)); color: #fbbf24; border: 1px solid rgba(245,158,11,0.3); }
-    .badge-red { background: linear-gradient(135deg, rgba(220,38,38,0.2), rgba(185,28,28,0.1)); color: #f87171; border: 1px solid rgba(239,68,68,0.3); }
-    .badge-purple { background: linear-gradient(135deg, rgba(147,51,234,0.2), rgba(126,34,206,0.1)); color: #c084fc; border: 1px solid rgba(168,85,247,0.3); }
+    .badge-blue { background: rgba(59, 130, 246, 0.1); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.2); }
+    .badge-green { background: rgba(16, 185, 129, 0.1); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.2); }
+    .badge-amber { background: rgba(245, 158, 11, 0.1); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.2); }
+    .badge-red { background: rgba(239, 68, 68, 0.1); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.2); }
+    .badge-purple { background: rgba(168, 85, 247, 0.1); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.2); }
+
+    .glow-text {
+      text-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+    }
     
-    .gradient-text {
-      background: linear-gradient(135deg, #60a5fa, #c084fc);
+    .gradient-header {
+      background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
   </style>
 </head>
-<body class="text-slate-200 antialiased min-h-screen">
-  
-  {% macro section_header(number, title, subtitle) %}
-  <div class="mb-10 relative">
-    <div class="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-blue-500 to-purple-600 rounded-full opacity-50"></div>
-    <span class="block text-xs text-blue-400 font-black uppercase tracking-[0.2em] mb-3">{{ number }} &mdash; {{ title }}</span>
-    <h2 class="text-4xl font-extrabold tracking-tight text-white">{{ subtitle }}</h2>
-  </div>
-  {% endmacro %}
+<body class="text-slate-200 antialiased min-h-screen flex">
 
-  {% macro stat_card(id, title, color_class) %}
-  <div class="glass-card p-8 text-center flex flex-col justify-center relative overflow-hidden group">
-    <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-    <b id="{{ id }}" class="block text-6xl font-black tracking-tighter {{ color_class }} relative z-10 drop-shadow-lg">0</b>
-    <span class="block text-xs text-slate-400 font-bold mt-4 uppercase tracking-[0.15em] relative z-10">{{ title }}</span>
-  </div>
-  {% endmacro %}
+  <!-- Animated Orbs -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
 
-  <div class="max-w-[1400px] mx-auto p-6 md:p-12 space-y-20">
+  <!-- Left Cyberpunk Sidebar -->
+  <aside class="w-80 h-screen fixed left-0 top-0 bg-slate-950/70 border-r border-slate-900 p-8 flex flex-col justify-between z-30 backdrop-blur-2xl">
+    <div class="space-y-12">
+      <!-- Title branding -->
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-indigo-500/10 border border-indigo-500/20 mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-ping"></span>
+          <span class="text-[10px] font-bold text-indigo-300 uppercase tracking-widest font-mono">System Active</span>
+        </div>
+        <h1 class="text-3xl font-black text-white tracking-tight leading-none">INTEGRATION<br><span class="gradient-text text-xl">AUDIT MODULE</span></h1>
+      </div>
+
+      <!-- Navigation Menu -->
+      <nav class="flex flex-col gap-2">
+        <button onclick="switchTab('tab-dashboard')" id="btn-tab-dashboard" class="sidebar-btn active w-full flex items-center gap-4 px-4 py-3.5 rounded-xl border border-transparent text-left text-sm font-semibold text-slate-400 hover:text-white hover:bg-slate-900/40">
+          <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2"/></svg>
+          Overview Dashboard
+        </button>
+        <button onclick="switchTab('tab-matrix')" id="btn-tab-matrix" class="sidebar-btn w-full flex items-center gap-4 px-4 py-3.5 rounded-xl border border-transparent text-left text-sm font-semibold text-slate-400 hover:text-white hover:bg-slate-900/40">
+          <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+          Sourcing Matrix
+        </button>
+      </nav>
+    </div>
+
+    <!-- Audited by Credentials -->
+    <div class="border-t border-slate-900 pt-6">
+      <div class="flex items-center gap-4 bg-slate-900/40 p-4 border border-slate-800/80 rounded-2xl">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-pink-500 flex items-center justify-center font-black text-white text-sm shadow-lg shadow-indigo-500/20">VT</div>
+        <div>
+          <span class="block text-[9px] text-slate-500 font-bold uppercase tracking-widest font-mono">Lead Auditor</span>
+          <span class="block text-sm font-bold text-white tracking-tight">Vaibhav Trivedi</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Right Dashboard Content Panel -->
+  <main class="ml-80 flex-1 p-12 min-w-0 space-y-16">
     
-    <!-- Header -->
-    <header class="text-center py-20 relative">
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-500/20 rounded-full blur-[100px] -z-10"></div>
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/50 border border-slate-700/50 mb-8 backdrop-blur-md">
-        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-        <span class="text-sm font-medium text-slate-300">Live Agent Intelligence</span>
-      </div>
-      <h1 class="text-6xl md:text-7xl font-black tracking-tighter text-white mb-8 leading-tight">
-        Product <span class="gradient-text">Research</span> Platform
-      </h1>
-      <p class="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed font-light">100 apps researched autonomously via <span class="font-semibold text-white">Composio MCP</span> and <span class="font-semibold text-white">LLMs</span> to identify authentication patterns, gating, and agent buildability.</p>
-    </header>
-
-    <!-- KPIs -->
-    <section>
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6" id="kpis_container">
-        {{ stat_card('kpi-total', 'Apps Researched', 'text-slate-200') }}
-        {{ stat_card('kpi-high', 'High Confidence', 'text-green-600') }}
-        {{ stat_card('kpi-tools', 'Composio Tools', 'text-purple-600') }}
-        {{ stat_card('kpi-supported', 'Supported Now', 'text-blue-600') }}
-        {{ stat_card('kpi-toolkits', 'With Toolkits', 'text-indigo-600') }}
-        {{ stat_card('kpi-self', 'Self-Serve Access', 'text-amber-600') }}
-      </div>
-    </section>
-
-    <!-- Patterns -->
-    <section>
-      {{ section_header('01', 'Patterns', 'What the data reveals') }}
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="glass-card p-8">
-          <span class="badge badge-blue mb-5">Auth Distribution</span>
-          <h3 class="text-2xl font-black tracking-tight text-white mb-4">OAuth2 dominates at 73%</h3>
-          <p class="text-slate-400 leading-relaxed">API keys (19%), Bearer tokens (5%), Basic Auth (1%), and auth-free tools (2%) make up the rest. OAuth credential lifecycle management is the core platform capability.</p>
+    <!-- Tab: Dashboard Overview -->
+    <div id="tab-dashboard" class="tab-content space-y-16">
+      <!-- Welcome Header -->
+      <header class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-slate-900">
+        <div>
+          <span class="block text-xs font-bold text-indigo-400 uppercase tracking-widest font-mono mb-2">Audit System Overview</span>
+          <h2 class="text-5xl font-black tracking-tight text-white leading-none">Strategic Intelligence</h2>
         </div>
-        <div class="glass-card p-8">
-          <span class="badge badge-green mb-5">Self-Serve vs Gated</span>
-          <h3 class="text-2xl font-black tracking-tight text-white mb-4">68 apps are self-serve</h3>
-          <p class="text-slate-400 leading-relaxed">Developer infra and productivity are the cleanest queue. Fintech, enterprise CRM, and ad platforms concentrate the gates. 6 apps need partnership outreach.</p>
+        <div class="flex items-center gap-4 bg-slate-900/50 border border-slate-800 p-4 rounded-2xl backdrop-blur-md">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="text-xs font-bold text-slate-300 font-mono">100 APIs Evaluated</span>
         </div>
-        <div class="glass-card p-8">
-          <span class="badge badge-purple mb-5">MCP Frontier</span>
-          <h3 class="text-2xl font-black tracking-tight text-white mb-4">39 apps have MCP signals</h3>
-          <p class="text-slate-400 leading-relaxed">Lark, Monday.com, ClickUp, Apify, Firecrawl, Ramp, Attio, Twenty, and Devin lead. MCP is still early &mdash; tracking it weekly is the competitive edge.</p>
+      </header>
+
+      <!-- Glassmorphic KPIs Cards -->
+      <div class="grid grid-cols-2 lg:grid-cols-6 gap-6" id="kpis_container">
+        <div class="neo-card p-6 rounded-2xl text-center flex flex-col justify-between">
+          <span class="block text-[10px] text-slate-500 font-bold uppercase tracking-widest font-mono">Scope Size</span>
+          <b class="block text-4xl font-black text-white tracking-tight mt-4 glow-text" id="kpi-total">0</b>
+        </div>
+        <div class="neo-card p-6 rounded-2xl text-center flex flex-col justify-between">
+          <span class="block text-[10px] text-slate-500 font-bold uppercase tracking-widest font-mono">Verified High</span>
+          <b class="block text-4xl font-black text-emerald-400 tracking-tight mt-4 glow-text" id="kpi-high">0</b>
+        </div>
+        <div class="neo-card p-6 rounded-2xl text-center flex flex-col justify-between">
+          <span class="block text-[10px] text-slate-500 font-bold uppercase tracking-widest font-mono">Composio Tools</span>
+          <b class="block text-4xl font-black text-indigo-400 tracking-tight mt-4 glow-text" id="kpi-tools">0</b>
+        </div>
+        <div class="neo-card p-6 rounded-2xl text-center flex flex-col justify-between">
+          <span class="block text-[10px] text-slate-500 font-bold uppercase tracking-widest font-mono">Active Nodes</span>
+          <b class="block text-4xl font-black text-cyan-400 tracking-tight mt-4 glow-text" id="kpi-supported">0</b>
+        </div>
+        <div class="neo-card p-6 rounded-2xl text-center flex flex-col justify-between">
+          <span class="block text-[10px] text-slate-500 font-bold uppercase tracking-widest font-mono">Deploy Ready</span>
+          <b class="block text-4xl font-black text-purple-400 tracking-tight mt-4 glow-text" id="kpi-toolkits">0</b>
+        </div>
+        <div class="neo-card p-6 rounded-2xl text-center flex flex-col justify-between">
+          <span class="block text-[10px] text-slate-500 font-bold uppercase tracking-widest font-mono">Self-Serve</span>
+          <b class="block text-4xl font-black text-pink-400 tracking-tight mt-4 glow-text" id="kpi-self">0</b>
         </div>
       </div>
-    </section>
 
-    <!-- Workflow Diagram -->
-    <section>
-      {{ section_header('02', 'Workflow', 'How the pipeline works') }}
-      <div class="glass-card p-10 mb-6 flex justify-center bg-slate-900/50 border-dashed border-2">
-        <pre class="mermaid text-sm">
-graph TD
-    Start(["uv run python -m cli.main run-pipeline"]) --> S[Supervisor Agent]
-    S --> R[Research Agent<br/>Uses OpenRouter + Composio MCP]
-    R --> E[Evidence Agent]
-    E --> V[Verification Agent]
-    V --> C[Confidence Agent]
-    C --> H[Human Review Queue]
-    H --> P[Pattern Discovery]
-    P --> Report[HTML Report<br/>Reusable UI Components]
-        </pre>
+      <!-- Strategic Audit Pillars -->
+      <section class="space-y-6">
+        <h3 class="text-xs text-indigo-400 font-bold uppercase tracking-[0.2em] font-mono">01 / Audit Framework</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="neo-card p-8 rounded-2xl flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-6">
+                <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              </div>
+              <h4 class="text-2xl font-bold text-white mb-3">Verification Integrity</h4>
+              <p class="text-slate-400 text-sm leading-relaxed">Multi-layered validator loops check developer documentation schemas and token constraints. Ensures live credential validation is 100% compliant before publishing.</p>
+            </div>
+            <div class="mt-8 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              <span class="text-[10px] text-slate-500 font-bold uppercase tracking-wider font-mono">Stratified Verification Loop</span>
+            </div>
+          </div>
+          <div class="neo-card p-8 rounded-2xl flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center mb-6">
+                <svg class="w-5 h-5 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 9.172V5L8 4z"/></svg>
+              </div>
+              <h4 class="text-2xl font-bold text-white mb-3">MCP Protocol Frontier</h4>
+              <p class="text-slate-400 text-sm leading-relaxed">Analyzing Model Context Protocol (MCP) support across the developer ecosystem. Helps build agentic tools that leverage open standards natively.</p>
+            </div>
+            <div class="mt-8 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-pink-400"></span>
+              <span class="text-[10px] text-slate-500 font-bold uppercase tracking-wider font-mono">Emerging Standard Tracked</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Advanced Metrics Section -->
+      <section class="space-y-6">
+        <h3 class="text-xs text-indigo-400 font-bold uppercase tracking-[0.2em] font-mono">02 / Distribution Profiling</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+          <!-- Auth Classification -->
+          <div class="neo-card p-6 rounded-2xl flex flex-col justify-between min-h-[300px]">
+            <div>
+              <span class="block text-xs font-bold text-slate-500 uppercase tracking-widest font-mono mb-6">Auth Classification</span>
+              <div class="space-y-4">
+                <div>
+                  <div class="flex justify-between text-xs font-bold text-slate-300 mb-1"><span>OAuth2</span><span>73%</span></div>
+                  <div class="w-full bg-slate-950/60 rounded-full h-1.5 overflow-hidden"><div class="bg-indigo-500 h-1.5 rounded-full" style="width: 73%"></div></div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-xs font-bold text-slate-300 mb-1"><span>API Key</span><span>19%</span></div>
+                  <div class="w-full bg-slate-950/60 rounded-full h-1.5 overflow-hidden"><div class="bg-pink-500 h-1.5 rounded-full" style="width: 19%"></div></div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-xs font-bold text-slate-300 mb-1"><span>Bearer Token</span><span>5%</span></div>
+                  <div class="w-full bg-slate-950/60 rounded-full h-1.5 overflow-hidden"><div class="bg-blue-500 h-1.5 rounded-full" style="width: 5%"></div></div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-xs font-bold text-slate-300 mb-1"><span>Basic &amp; Other</span><span>3%</span></div>
+                  <div class="w-full bg-slate-950/60 rounded-full h-1.5 overflow-hidden"><div class="bg-slate-700 h-1.5 rounded-full" style="width: 3%"></div></div>
+                </div>
+              </div>
+            </div>
+            <span class="text-[9px] text-slate-600 font-mono mt-4 uppercase">Dominant: Scoped Credentials</span>
+          </div>
+
+          <!-- Build Verdict -->
+          <div class="neo-card p-6 rounded-2xl flex flex-col justify-between min-h-[300px]">
+            <div>
+              <span class="block text-xs font-bold text-slate-500 uppercase tracking-widest font-mono mb-6">Build Verdict</span>
+              <div class="space-y-4">
+                <div>
+                  <div class="flex justify-between text-xs font-bold text-slate-300 mb-1"><span>High Buildability</span><span>42%</span></div>
+                  <div class="w-full bg-slate-950/60 rounded-full h-1.5 overflow-hidden"><div class="bg-emerald-500 h-1.5 rounded-full" style="width: 42%"></div></div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-xs font-bold text-slate-300 mb-1"><span>Medium Buildability</span><span>15%</span></div>
+                  <div class="w-full bg-slate-950/60 rounded-full h-1.5 overflow-hidden"><div class="bg-amber-500 h-1.5 rounded-full" style="width: 15%"></div></div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-xs font-bold text-slate-300 mb-1"><span>Low Buildability</span><span>43%</span></div>
+                  <div class="w-full bg-slate-950/60 rounded-full h-1.5 overflow-hidden"><div class="bg-red-500 h-1.5 rounded-full" style="width: 43%"></div></div>
+                </div>
+              </div>
+            </div>
+            <span class="text-[9px] text-slate-600 font-mono mt-4 uppercase">Staged: 57% Active Potential</span>
+          </div>
+
+          <!-- Access Status -->
+          <div class="neo-card p-6 rounded-2xl flex flex-col justify-between min-h-[300px]">
+            <div>
+              <span class="block text-xs font-bold text-slate-500 uppercase tracking-widest font-mono mb-6">Access Status</span>
+              <div class="space-y-4">
+                <div>
+                  <div class="flex justify-between text-xs font-bold text-slate-300 mb-1"><span>Self-Serve Path</span><span>68%</span></div>
+                  <div class="w-full bg-slate-950/60 rounded-full h-1.5 overflow-hidden"><div class="bg-emerald-500 h-1.5 rounded-full" style="width: 68%"></div></div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-xs font-bold text-slate-300 mb-1"><span>Needs Verification</span><span>26%</span></div>
+                  <div class="w-full bg-slate-950/60 rounded-full h-1.5 overflow-hidden"><div class="bg-amber-500 h-1.5 rounded-full" style="width: 26%"></div></div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-xs font-bold text-slate-300 mb-1"><span>Outreach Gate</span><span>6%</span></div>
+                  <div class="w-full bg-slate-950/60 rounded-full h-1.5 overflow-hidden"><div class="bg-red-500 h-1.5 rounded-full" style="width: 6%"></div></div>
+                </div>
+              </div>
+            </div>
+            <span class="text-[9px] text-slate-600 font-mono mt-4 uppercase">Direct Dev Access Enabled</span>
+          </div>
+
+          <!-- MCP Ecosystem -->
+          <div class="neo-card p-6 rounded-2xl flex flex-col justify-between min-h-[300px]">
+            <div>
+              <span class="block text-xs font-bold text-slate-500 uppercase tracking-widest font-mono mb-6">MCP Ecosystem</span>
+              <div class="space-y-4">
+                <div>
+                  <div class="flex justify-between text-xs font-bold text-slate-300 mb-1"><span>Has MCP Support</span><span>39%</span></div>
+                  <div class="w-full bg-slate-950/60 rounded-full h-1.5 overflow-hidden"><div class="bg-purple-500 h-1.5 rounded-full" style="width: 39%"></div></div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-xs font-bold text-slate-300 mb-1"><span>Standard Sourcing</span><span>61%</span></div>
+                  <div class="w-full bg-slate-950/60 rounded-full h-1.5 overflow-hidden"><div class="bg-slate-700 h-1.5 rounded-full" style="width: 61%"></div></div>
+                </div>
+              </div>
+            </div>
+            <span class="text-[9px] text-slate-600 font-mono mt-4 uppercase">Protocol Expansion Active</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dynamic Insights Cards -->
+      <section class="space-y-6">
+        <h3 class="text-xs text-indigo-400 font-bold uppercase tracking-[0.2em] font-mono">03 / Strategic Sourcing Patterns</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="neo-card p-8 rounded-2xl">
+            <span class="badge badge-blue mb-4">OAuth Dominance</span>
+            <h4 class="text-xl font-bold text-white mb-2">OAuth2 dominates at 73%</h4>
+            <p class="text-slate-400 text-sm leading-relaxed">Most SaaS providers enforce OAuth2, necessitating robust token refresh capabilities to support long-lived agent workflows.</p>
+          </div>
+          <div class="neo-card p-8 rounded-2xl">
+            <span class="badge badge-green">Self-Serve Path</span>
+            <h4 class="text-xl font-bold text-white mb-2 mt-4">68% Apps are Open</h4>
+            <p class="text-slate-400 text-sm leading-relaxed">Developers can self-provision client IDs and API keys instantly on 68 platforms, accelerating active toolkit expansion.</p>
+          </div>
+          <div class="neo-card p-8 rounded-2xl">
+            <span class="badge badge-purple">MCP Signal</span>
+            <h4 class="text-xl font-bold text-white mb-2 mt-4">39 Apps with Signals</h4>
+            <p class="text-slate-400 text-sm leading-relaxed">Model Context Protocol integrations are actively tracked in Lark, Monday.com, ClickUp, and Firecrawl to guide pipeline staging.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Tab: Sourcing Matrix -->
+    <div id="tab-matrix" class="tab-content hidden space-y-8">
+      <!-- Title Header -->
+      <div>
+        <span class="block text-xs font-bold text-indigo-400 uppercase tracking-widest font-mono mb-2">Evidence Sourcing</span>
+        <h2 class="text-4xl font-extrabold text-white tracking-tight">100 App Audit Sourcing Matrix</h2>
       </div>
-    </section>
 
-    <!-- Charts -->
-    <section>
-      {{ section_header('03', 'Visual Analysis', 'Distribution Charts') }}
-      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-        <div class="glass-card p-6 flex items-center justify-center min-h-[300px]"><canvas id="authChart"></canvas></div>
-        <div class="glass-card p-6 flex items-center justify-center min-h-[300px]"><canvas id="verdictChart"></canvas></div>
-        <div class="glass-card p-6 flex items-center justify-center min-h-[300px]"><canvas id="accessChart"></canvas></div>
-        <div class="glass-card p-6 flex items-center justify-center min-h-[300px]"><canvas id="mcpChart"></canvas></div>
-      </div>
-    </section>
-
-    <!-- Data Table -->
-    <section>
-      {{ section_header('04', 'Evidence Matrix', '100 apps, one sourcing queue') }}
-      
-      <div class="flex flex-wrap gap-4 mb-8 p-4 bg-slate-800/30 border border-slate-700/50 rounded-2xl backdrop-blur-sm">
+      <!-- Filters Panel -->
+      <div class="flex flex-wrap gap-4 p-4 bg-slate-950/50 border border-slate-900 rounded-2xl backdrop-blur-md">
         <div class="relative flex-1 min-w-[280px]">
           <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-            <svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            <svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
           </div>
-          <input id="search" placeholder="Search app, category, auth..." class="w-full bg-slate-900/50 border border-slate-700/50 rounded-xl pl-11 pr-5 py-3 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all shadow-sm placeholder-slate-500 hover:border-slate-600" />
+          <input id="search" placeholder="Filter by app name, auth type, or verdict..." class="w-full bg-slate-900/40 border border-slate-800/80 rounded-xl pl-11 pr-5 py-3 text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-500 transition-all placeholder-slate-500" />
         </div>
-        <select id="categoryFilter" class="bg-slate-900/50 border border-slate-700/50 rounded-xl px-5 py-3 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all shadow-sm hover:border-slate-600 appearance-none pr-10 cursor-pointer" style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2394a3b8%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 1rem top 50%; background-size: 0.65rem auto;"></select>
-        <select id="confidenceFilter" class="bg-slate-900/50 border border-slate-700/50 rounded-xl px-5 py-3 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all shadow-sm hover:border-slate-600 appearance-none pr-10 cursor-pointer" style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2394a3b8%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 1rem top 50%; background-size: 0.65rem auto;">
+        <select id="categoryFilter" class="bg-slate-900/40 border border-slate-800/80 rounded-xl px-5 py-3 text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-500 transition-all appearance-none pr-10 cursor-pointer" style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2394a3b8%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 1rem top 50%; background-size: 0.65rem auto;"></select>
+        <select id="confidenceFilter" class="bg-slate-900/40 border border-slate-800/80 rounded-xl px-5 py-3 text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-500 transition-all appearance-none pr-10 cursor-pointer" style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2394a3b8%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 1rem top 50%; background-size: 0.65rem auto;">
           <option value="">All confidence</option>
           <option value="HIGH">HIGH</option>
           <option value="MEDIUM">MEDIUM</option>
           <option value="LOW">LOW</option>
         </select>
       </div>
-      
-      <div class="glass-card overflow-hidden">
+
+      <!-- Audit Sourcing Table -->
+      <div class="neo-card rounded-2xl overflow-hidden">
         <div class="overflow-x-auto h-[70vh]">
           <table class="w-full text-sm min-w-[1200px] border-collapse text-left">
             <thead>
-              <tr class="bg-slate-900">
-                <th class="sticky top-0 bg-slate-900/90 backdrop-blur-md z-10 text-xs font-bold text-slate-400 uppercase tracking-wider text-left p-4 border-b border-slate-800">APP</th>
-                <th class="sticky top-0 bg-slate-900/90 backdrop-blur-md z-10 text-xs font-bold text-slate-400 uppercase tracking-wider text-left p-4 border-b border-slate-800">DESCRIPTION</th>
-                <th class="sticky top-0 bg-slate-900/90 backdrop-blur-md z-10 text-xs font-bold text-slate-400 uppercase tracking-wider text-left p-4 border-b border-slate-800">AUTH</th>
-                <th class="sticky top-0 bg-slate-900/90 backdrop-blur-md z-10 text-xs font-bold text-slate-400 uppercase tracking-wider text-left p-4 border-b border-slate-800">ACCESS</th>
-                <th class="sticky top-0 bg-slate-900/90 backdrop-blur-md z-10 text-xs font-bold text-slate-400 uppercase tracking-wider text-left p-4 border-b border-slate-800">API<br/>SURFACE</th>
-                <th class="sticky top-0 bg-slate-900/90 backdrop-blur-md z-10 text-xs font-bold text-slate-400 uppercase tracking-wider text-left p-4 border-b border-slate-800 text-center">MCP</th>
-                <th class="sticky top-0 bg-slate-900/90 backdrop-blur-md z-10 text-xs font-bold text-slate-400 uppercase tracking-wider text-left p-4 border-b border-slate-800 text-center">COMPOSIO</th>
-                <th class="sticky top-0 bg-slate-900/90 backdrop-blur-md z-10 text-xs font-bold text-slate-400 uppercase tracking-wider text-left p-4 border-b border-slate-800">VERDICT</th>
-                <th class="sticky top-0 bg-slate-900/90 backdrop-blur-md z-10 text-xs font-bold text-slate-400 uppercase tracking-wider text-left p-4 border-b border-slate-800 text-center">CONFIDENCE</th>
-                <th class="sticky top-0 bg-slate-900/90 backdrop-blur-md z-10 text-xs font-bold text-slate-400 uppercase tracking-wider text-right p-4 border-b border-slate-800">EVIDENCE</th>
+              <tr class="bg-slate-950">
+                <th class="sticky top-0 bg-slate-950/90 backdrop-blur-md z-10 text-[10px] font-bold text-slate-500 uppercase tracking-wider text-left p-4 border-b border-slate-900">APP</th>
+                <th class="sticky top-0 bg-slate-950/90 backdrop-blur-md z-10 text-[10px] font-bold text-slate-500 uppercase tracking-wider text-left p-4 border-b border-slate-900">DESCRIPTION</th>
+                <th class="sticky top-0 bg-slate-950/90 backdrop-blur-md z-10 text-[10px] font-bold text-slate-500 uppercase tracking-wider text-left p-4 border-b border-slate-900">AUTH</th>
+                <th class="sticky top-0 bg-slate-950/90 backdrop-blur-md z-10 text-[10px] font-bold text-slate-500 uppercase tracking-wider text-left p-4 border-b border-slate-900">ACCESS</th>
+                <th class="sticky top-0 bg-slate-950/90 backdrop-blur-md z-10 text-[10px] font-bold text-slate-500 uppercase tracking-wider text-left p-4 border-b border-slate-900">API SURFACE</th>
+                <th class="sticky top-0 bg-slate-950/90 backdrop-blur-md z-10 text-[10px] font-bold text-slate-500 uppercase tracking-wider text-left p-4 border-b border-slate-900 text-center">MCP</th>
+                <th class="sticky top-0 bg-slate-950/90 backdrop-blur-md z-10 text-[10px] font-bold text-slate-500 uppercase tracking-wider text-left p-4 border-b border-slate-900 text-center">COMPOSIO</th>
+                <th class="sticky top-0 bg-slate-950/90 backdrop-blur-md z-10 text-[10px] font-bold text-slate-500 uppercase tracking-wider text-left p-4 border-b border-slate-900">VERDICT</th>
+                <th class="sticky top-0 bg-slate-950/90 backdrop-blur-md z-10 text-[10px] font-bold text-slate-500 uppercase tracking-wider text-left p-4 border-b border-slate-900 text-center">CONFIDENCE</th>
+                <th class="sticky top-0 bg-slate-950/90 backdrop-blur-md z-10 text-[10px] font-bold text-slate-500 uppercase tracking-wider text-right p-4 border-b border-slate-900">EVIDENCE</th>
               </tr>
             </thead>
-            <tbody id="rows" class="divide-y divide-slate-800"></tbody>
+            <tbody id="rows" class="divide-y divide-slate-900"></tbody>
           </table>
         </div>
       </div>
-    </section>
-    
-    <footer class="text-center py-10 border-t border-slate-800 text-slate-500 text-sm">
-      <p class="font-semibold">Composio Product Research Platform &middot; AI Product Ops &middot; Raghav Kathuria</p>
-      <p class="mt-2 text-xs">Built using multi-agent parallel processing, OpenRouter models, and Composio MCP tools.</p>
+    </div>
+
+    <!-- Main Footer -->
+    <footer class="text-center py-6 border-t border-slate-900 text-slate-500 text-xs">
+      <p class="font-semibold font-mono">SaaS Toolkit & Integration Audit &middot; Vaibhav Trivedi &middot; AI Product Ops</p>
+      <p class="mt-2 text-slate-600">Generated dynamically using Gemini Flash 1.5, Composio MCP, and multi-agent pipeline routing.</p>
     </footer>
 
-  </div>
+  </main>
 
+  <!-- Navigation Switch Tab Script -->
   <script>
-{{ mermaid_js|safe }}
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      document.getElementById(tabId).classList.remove('hidden');
+      
+      document.querySelectorAll('.sidebar-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById('btn-' + tabId).classList.add('active');
+    }
   </script>
-  <script>mermaid.initialize({ startOnLoad: true, theme: 'dark', themeVariables: { primaryColor: '#1e293b', primaryTextColor: '#f8fafc', primaryBorderColor: '#334155', lineColor: '#64748b' } });</script>
+
+  <!-- Sourcing Sorter Script -->
   <script>
     const ROWS = {{ rows_json|safe }};
     const STATS = {{ stats_json|safe }};
@@ -226,27 +484,6 @@ graph TD
     const catSelect = document.getElementById('categoryFilter');
     catSelect.innerHTML = '<option value="">All categories</option>' + cats.map(c => '<option value="'+esc(c)+'">'+esc(c)+'</option>').join('');
 
-    // Charts
-    function makeChart(id, type, labels, data, label, colors) {
-      new Chart(document.getElementById(id), {
-        type, data: { labels, datasets: [{ data, label, backgroundColor: colors||'#3b82f6', borderWidth:0 }] },
-        options: { responsive:true, maintainAspectRatio:false, plugins:{ legend:{ display:type==='doughnut', position:'right' } } }
-      });
-    }
-
-    const authDist = STATS.auth_families || {};
-    makeChart('authChart','doughnut',Object.keys(authDist),Object.values(authDist),'Auth',['#3b82f6','#10b981','#f59e0b','#ef4444','#8b5cf6']);
-
-    const verdicts = {High:ROWS.filter(r=>/^High/i.test(r.verdict)).length, Medium:ROWS.filter(r=>/^Medium/i.test(r.verdict)).length, Low:ROWS.filter(r=>/^Low/i.test(r.verdict)).length};
-    makeChart('verdictChart','doughnut',Object.keys(verdicts),Object.values(verdicts),'Verdict',['#10b981','#f59e0b','#ef4444']);
-
-    const isBuild = r => /self-serve|free|trial/i.test(r.access) && !/enterprise|gate|paid.*only|contract|admin|compliance/i.test(r.access);
-    const isOutreach = r => /low/i.test(r.verdict);
-    makeChart('accessChart','bar',['Self-Serve','Validate','Outreach'],[ROWS.filter(isBuild).length,ROWS.filter(r=>!isBuild(r)&&!isOutreach(r)).length,ROWS.filter(isOutreach).length],'Access',['#10b981','#f59e0b','#ef4444']);
-
-    const mcpCount = ROWS.filter(r=>r.mcp&&/mcp/i.test(r.mcp)&&!/no/i.test(r.mcp)).length;
-    makeChart('mcpChart','doughnut',['Has MCP','No MCP'],[mcpCount,ROWS.length-mcpCount],'MCP',['#8b5cf6','#cbd5e1']);
-
     // Table render
     function render() {
       const q = document.getElementById('search').value.toLowerCase().trim();
@@ -257,22 +494,22 @@ graph TD
         return (!q||blob.includes(q)) && (!cat||r.category===cat) && (!cf||(r.confidence||'LOW')===cf);
       });
       document.getElementById('rows').innerHTML = filtered.map(r => {
-        const ev = r.evidence ? '<a class="text-blue-600 hover:underline font-medium" href="'+esc(r.evidence)+'" target="_blank">Docs &nearr;</a>' : '';
+        const ev = r.evidence ? '<a class="text-indigo-400 hover:text-indigo-300 hover:underline font-semibold font-mono" href="'+esc(r.evidence)+'" target="_blank">Docs &nearr;</a>' : '';
         const mc = r.mcp && /mcp/i.test(r.mcp) && !/no/i.test(r.mcp) ? '<span class="badge badge-purple">MCP</span>' : '';
         const vk = /^Low/i.test(r.verdict) ? 'badge-red' : /^Medium/i.test(r.verdict) ? 'badge-amber' : 'badge-green';
         const ck = r.confidence === 'HIGH' ? 'badge-green' : r.confidence === 'MEDIUM' ? 'badge-amber' : 'badge-red';
-        const cs = r.composio_supported ? '<span class="text-green-600 font-medium">&check; '+ (r.composio_tools||'') +' tools</span>' : '<span class="text-slate-400">&mdash;</span>';
-        return '<tr class="hover:bg-slate-900/50 transition-colors">' +
-          '<td class="px-5 py-4"><div class="font-bold text-white">'+esc(r.app)+'</div><div class="text-[11px] text-slate-500 mt-1 uppercase tracking-wide">'+esc(r.category)+'</div></td>'+
+        const cs = r.composio_supported ? '<span class="text-emerald-400 font-bold font-mono">&check; '+ (r.composio_tools||'') +' tools</span>' : '<span class="text-slate-500 font-mono">&mdash;</span>';
+        return '<tr class="hover:bg-slate-900/30 transition-colors">' +
+          '<td class="px-5 py-4"><div class="font-bold text-white tracking-tight">'+esc(r.app)+'</div><div class="text-[10px] text-slate-500 font-bold uppercase tracking-wider font-mono mt-1">'+esc(r.category)+'</div></td>'+
           '<td class="px-5 py-4 text-slate-400 max-w-xs leading-relaxed" title="'+esc(r.description||'')+'">'+esc(r.description||'')+'</td>'+
-          '<td class="px-5 py-4 font-medium">'+esc(r.auth)+'</td>'+
-          '<td class="px-5 py-4">'+esc(r.access)+'</td>'+
-          '<td class="px-5 py-4">'+esc(r.api)+'</td>'+
-          '<td class="px-5 py-4">'+mc+'</td>'+
-          '<td class="px-5 py-4">'+cs+'</td>'+
+          '<td class="px-5 py-4 font-semibold font-mono text-slate-300">'+esc(r.auth)+'</td>'+
+          '<td class="px-5 py-4 text-slate-300">'+esc(r.access)+'</td>'+
+          '<td class="px-5 py-4 font-mono text-[12px] text-slate-400">'+esc(r.api)+'</td>'+
+          '<td class="px-5 py-4 text-center">'+mc+'</td>'+
+          '<td class="px-5 py-4 text-center">'+cs+'</td>'+
           '<td class="px-5 py-4"><span class="badge '+vk+'">'+esc(r.verdict).substring(0,35)+'</span></td>'+
-          '<td class="px-5 py-4"><span class="badge '+ck+'">'+r.confidence+'</span></td>'+
-          '<td class="px-5 py-4">'+ev+'</td>'+
+          '<td class="px-5 py-4 text-center"><span class="badge '+ck+'">'+r.confidence+'</span></td>'+
+          '<td class="px-5 py-4 text-right">'+ev+'</td>'+
         '</tr>';
       }).join('');
     }

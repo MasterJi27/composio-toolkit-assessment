@@ -1,7 +1,7 @@
 import asyncio
 from composio import Composio
 from composio_langchain import LangchainProvider
-from backend.config import settings
+from services.config import settings
 from langchain_mcp_adapters.client import MultiServerMCPClient
 from langchain_mcp_adapters.tools import load_mcp_tools
 

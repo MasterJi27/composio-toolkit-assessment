@@ -7,8 +7,8 @@ import sqlite3
 from pathlib import Path
 from typing import Optional
 
-from backend.config import settings
-from backend.models import AppRecord
+from services.config import settings
+from services.models import AppRecord
 
 
 class ResearchDB:

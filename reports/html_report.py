@@ -11,7 +11,7 @@ from typing import Any
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
-from backend.config import settings
+from services.config import settings
 
 
 def generate_report(data: dict, output_path: Path):
@@ -26,7 +26,7 @@ def generate_report(data: dict, output_path: Path):
     rows = data.get("rows", [])
     stats = data.get("stats", {})
     insights = data.get("insights", {})
-    verification = data.get("verification", {})
+    verification = data.get("evaluation", {})
 
     # Serialize to JSON for embedding
     rows_json = json.dumps(rows, ensure_ascii=False).replace("</", "<\\/")

@@ -88,7 +88,7 @@ def research_all(live_check: bool = False, agentic: bool = False, limit: int = 1
     agent = None
     if agentic:
         try:
-            from agents.agentic import AgenticResearcher
+            from intelligence.agentic import AgenticResearcher
             agent = AgenticResearcher()
         except Exception as e:
             from rich.console import Console
@@ -167,7 +167,7 @@ def research_all(live_check: bool = False, agentic: bool = False, limit: int = 1
         if ev_url:
             ev_url = ev_url.replace("https://[GATED] ", "https://").replace("[GATED] ", "")
 
-        from backend.composio_client import composio as _composio_cli
+        from services.composio_client import composio as _composio_cli
         _composio_cli._ensure_init()
         _tk = _composio_cli.check_toolkit(app["app"])
         _composio_supported = _tk.get("supported", False) if isinstance(_tk, dict) else (app["app"] in COMPOSIO_DEMAND)

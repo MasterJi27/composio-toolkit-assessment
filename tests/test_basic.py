@@ -1,4 +1,4 @@
-from backend.config import settings
+from services.config import settings
 from cli.main import cli
 
 def test_environment_loads():

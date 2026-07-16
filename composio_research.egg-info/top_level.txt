@@ -1,6 +1,6 @@
-agents
-backend
 cli
+evaluation
+intelligence
 reports
 research
-verification
+services

@@ -7,7 +7,7 @@ from typing import Optional
 
 from rich.console import Console
 
-from backend.config import settings
+from services.config import settings
 
 console = Console()
 

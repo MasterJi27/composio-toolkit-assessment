@@ -6,7 +6,7 @@ import os
 from typing import Optional
 
 from rich.console import Console
-from backend.config import settings
+from services.config import settings
 
 console = Console()
 
@@ -46,7 +46,7 @@ class AgenticResearcher:
         self.use_tools = False
         self.tools = []
         try:
-            from backend.composio_client import composio as _composio_cli
+            from services.composio_client import composio as _composio_cli
             _composio_cli._ensure_init()
             accounts = _composio_cli.get_connected_accounts()
             has_exa = any(a.get("app") == "exa" or a.get("appUniqueId") == "exa" for a in accounts) if accounts else False

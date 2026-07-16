@@ -5,7 +5,7 @@ from __future__ import annotations
 import os
 from typing import Any, Optional
 
-from backend.config import settings
+from services.config import settings
 
 
 class ComposioClient:

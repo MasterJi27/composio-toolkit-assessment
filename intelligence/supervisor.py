@@ -22,16 +22,35 @@ from rich.panel import Panel
 from rich.table import Table
 from rich import box
 
-from backend.config import settings
-from backend.database import db, AppRecord
+from services.config import settings
+from services.database import db, AppRecord
 from research.researcher import research_all, compute_stats
-from verification.verifier import VerificationAgent
-from agents.evidence import EvidenceAgent
-from agents.confidence import ConfidenceAgent
-from agents.human_review import HumanReviewAgent
-from agents.patterns import PatternDiscoveryAgent
+from evaluation.verifier import VerificationAgent
+from intelligence.evidence import EvidenceAgent
+from intelligence.confidence import ConfidenceAgent
+from intelligence.human_review import HumanReviewAgent
+from intelligence.patterns import PatternDiscoveryAgent
 
 console = Console()
+
+
+class PipelineRegistry:
+    """Dynamic Registry for executing pipeline nodes with dependency resolution."""
+    def __init__(self, data: dict):
+        self.data = data
+        self.results = {}
+
+    def run_node(self, name: str, agent_class: Any, method: str = "run", deps: list[Any] = None):
+        console.rule(f"[bold green]Phase: {name.replace('_', ' ').title()}[/bold green]")
+        # Instantiate with data and dependencies
+        agent_args = [self.data]
+        if deps:
+            agent_args.extend(deps)
+        
+        agent_instance = agent_class(*agent_args)
+        run_func = getattr(agent_instance, method)
+        self.results[name] = run_func()
+        return self.results[name]
 
 
 class SupervisorAgent:
@@ -80,7 +99,7 @@ class SupervisorAgent:
         self.research_data["stats"]["needs_review"] = needs
 
     def run_pipeline(self, live_check: bool = False, agentic: bool = False, limit: int = 100) -> dict:
-        """Run all phases sequentially."""
+        """Run all phases registry-driven."""
         try:
             start_time = time.time()
             self._update_status("running", "Research", progress=0, total=limit)
@@ -114,40 +133,33 @@ class SupervisorAgent:
             console.print(f"  [green]✓[/green] {stats['high_confidence']} high confidence")
             console.print(f"  [yellow]![/yellow] {stats['needs_review']} need review")
 
+            # Initialize Pipeline Registry
+            registry = PipelineRegistry(self.research_data)
+
             # Phase 2: Evidence Grading
-            console.rule("[bold green]Phase 2: Evidence Agent[/bold green]")
             self._update_status("running", "Evidence", progress=limit, total=limit)
-            evidence_agent = EvidenceAgent(self.research_data)
-            self.evidence_results = evidence_agent.run()
+            self.evidence_results = registry.run_node("evidence", EvidenceAgent)
 
             # Phase 3: Verification
-            console.rule("[bold green]Phase 3: Verification Agent[/bold green]")
             self._update_status("running", "Verification", progress=limit, total=limit)
-            verifier = VerificationAgent(self.research_data)
-            self.verification_results = verifier.run()
+            self.verification_results = registry.run_node("verification", VerificationAgent)
 
             # Phase 4: Confidence Assignment
-            console.rule("[bold green]Phase 4: Confidence Agent[/bold green]")
             self._update_status("running", "Confidence", progress=limit, total=limit)
-            confidence_agent = ConfidenceAgent(self.research_data, self.verification_results)
-            confidence_result = confidence_agent.run()
+            confidence_result = registry.run_node("confidence", ConfidenceAgent, deps=[self.verification_results])
             self.confidence_assignments = confidence_result["assignments"]
             self._apply_confidence()
 
             # Phase 5: Human Review Queue
-            console.rule("[bold green]Phase 5: Human Review Agent[/bold green]")
             self._update_status("running", "Human Review", progress=limit, total=limit)
-            review_agent = HumanReviewAgent(self.research_data, self.confidence_assignments)
-            self.review_queue = review_agent.run()
+            self.review_queue = registry.run_node("human_review", HumanReviewAgent, deps=[self.confidence_assignments])
 
             # Phase 6: Pattern Discovery
-            console.rule("[bold green]Phase 6: Pattern Discovery Agent[/bold green]")
             self._update_status("running", "Patterns", progress=limit, total=limit)
-            pattern_agent = PatternDiscoveryAgent(self.research_data)
-            self.insights = pattern_agent.discover()
+            self.insights = registry.run_node("patterns", PatternDiscoveryAgent, method="discover")
 
             # Phase 7: Persist
-            console.rule("[bold green]Phase 7: Persisting results[/bold green]")
+            console.rule("[bold green]Phase: Persisting Results[/bold green]")
             self._update_status("running", "Report", progress=limit, total=limit)
             self._persist()
 
@@ -247,7 +259,7 @@ class SupervisorAgent:
             "rows": rows_out,
             "stats": self.research_data["stats"],
             "insights": self.insights or {},
-            "verification": self.verification_results or {},
+            "evaluation": self.verification_results or {},
             "evidence": self.evidence_results or {},
             "review_queue": self.review_queue or {},
         }

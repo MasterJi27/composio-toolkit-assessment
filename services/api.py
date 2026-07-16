@@ -9,7 +9,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
 
-from backend.config import settings
+from services.config import settings
 
 app = FastAPI(
     title="Composio Product Research API",

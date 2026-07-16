@@ -20,9 +20,9 @@ import typer
 from rich.console import Console
 from rich import print as rprint
 
-from backend.config import settings
-from backend.database import db
-from agents.supervisor import SupervisorAgent
+from services.config import settings
+from services.database import db
+from intelligence.supervisor import SupervisorAgent
 
 cli = typer.Typer(
     name="composio-research",
@@ -61,7 +61,7 @@ def research(
 @cli.command()
 def verify():
     """Run only the verification pass on existing research data."""
-    from verification.verifier import VerificationAgent
+    from evaluation.verifier import VerificationAgent
 
     if not settings.research_json.exists():
         rprint("[red]✗[/red] No research data found. Run 'composio-research research' first.")
@@ -82,7 +82,7 @@ def verify():
 @cli.command()
 def analyze():
     """Run pattern discovery on existing research data."""
-    from agents.patterns import PatternDiscoveryAgent
+    from intelligence.patterns import PatternDiscoveryAgent
 
     if not settings.research_json.exists():
         rprint("[red]✗[/red] No research data found. Run 'composio-research research' first.")
@@ -110,9 +110,9 @@ def build_report(
 
     if settings.verification_json.exists():
         verification = json.loads(settings.verification_json.read_text(encoding="utf-8"))
-        data["verification"] = verification
+        data["evaluation"] = verification
     else:
-        data["verification"] = {}
+        data["evaluation"] = {}
 
     generate_report(data, output)
     rprint(f"[green]✓[/green] Report generated at {output}")
@@ -128,7 +128,7 @@ def serve(
         import uvicorn
         rprint(f"[green]→[/green] FastAPI server at http://localhost:{port}")
         rprint("[dim]Press Ctrl+C to stop[/dim]")
-        from backend.api import app
+        from services.api import app
         uvicorn.run(app, host="0.0.0.0", port=port, log_level="info")
     else:
         import http.server
