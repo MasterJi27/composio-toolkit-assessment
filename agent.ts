@@ -1,24 +1,28 @@
-import 'dotenv/config';
-import { Composio } from "@composio/core";
-import { VercelProvider } from "@composio/vercel";
+import { google } from "@ai-sdk/google";
+import { generateText } from "ai";
+import { createComposioToolSet } from "@composio/core";
 
-// Setup Composio with the Vercel Provider exactly as requested
-const composio = new Composio({ provider: new VercelProvider() });
-const userId = "user_m723jp";
+// Initialize Composio ToolSet
+const composioToolSet = createComposioToolSet({
+    apiKey: process.env.COMPOSIO_API_KEY,
+});
 
 async function main() {
-  console.log("Initializing Composio SDK...");
-  try {
-    // Create a tool router session
-    const session = await composio.create(userId);
-    const tools = await session.tools();
-    
-    console.log(`Successfully connected to Composio! Loaded ${Object.keys(tools).length} tools.`);
-    console.log("You have completed the Composio Platform Setup!");
-    
-  } catch (error) {
-    console.error("Error connecting to Composio:", error);
-  }
+    // Get GitHub tools from Composio
+    const tools = await composioToolSet.getTools({ actions: ["github_star_a_repository_for_the_authenticated_user"] });
+
+    console.log("Running agent with Gemini...");
+
+    // Execute the agent
+    const result = await generateText({
+        model: google("gemini-2.5-pro"),
+        prompt: "Star the composiohq/composio repo on GitHub",
+        tools: tools,
+        maxSteps: 5
+    });
+
+    console.log("\nAgent response:");
+    console.log(result.text);
 }
 
-main();
+main().catch(console.error);
