@@ -37,7 +37,7 @@ GEMINI_API_KEY=your_gemini_api_key      # Required for Agentic execution
 # Run deterministic pipeline (Fast, loads pre-verified documentation data)
 python -m cli.main run-pipeline
 
-# Run agentic pipeline (Queries Gemini Flash 1.5 and Composio MCP to research live APIs)
+# Run agentic pipeline (Queries Gemini Flash 3.5 and Composio MCP to research live APIs)
 python -m cli.main run-pipeline --agentic --limit 10
 ```
 
