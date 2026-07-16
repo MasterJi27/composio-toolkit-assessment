@@ -1,0 +1,2 @@
+[console_scripts]
+composio-research = cli.main:entry_point

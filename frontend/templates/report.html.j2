@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Composio Product Research Platform</title>
+  <script>{{ tailwind_js|safe }}</script>
+  <script>{{ chart_js|safe }}</script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+    body { 
+      font-family: 'Plus Jakarta Sans', sans-serif; 
+      background-color: #030712; 
+      color: #f3f4f6; 
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.1) 0px, transparent 50%);
+      background-attachment: fixed;
+    }
+    .glass-card {
+      background: rgba(17, 24, 39, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .glass-card:hover {
+      background: rgba(31, 41, 55, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2), 0 0 20px rgba(59, 130, 246, 0.1);
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 12px;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .badge-blue { background: linear-gradient(135deg, rgba(37,99,235,0.2), rgba(29,78,216,0.1)); color: #60a5fa; border: 1px solid rgba(59,130,246,0.3); }
+    .badge-green { background: linear-gradient(135deg, rgba(5,150,105,0.2), rgba(4,120,87,0.1)); color: #34d399; border: 1px solid rgba(16,185,129,0.3); }
+    .badge-amber { background: linear-gradient(135deg, rgba(217,119,6,0.2), rgba(180,83,9,0.1)); color: #fbbf24; border: 1px solid rgba(245,158,11,0.3); }
+    .badge-red { background: linear-gradient(135deg, rgba(220,38,38,0.2), rgba(185,28,28,0.1)); color: #f87171; border: 1px solid rgba(239,68,68,0.3); }
+    .badge-purple { background: linear-gradient(135deg, rgba(147,51,234,0.2), rgba(126,34,206,0.1)); color: #c084fc; border: 1px solid rgba(168,85,247,0.3); }
+    
+    .gradient-text {
+      background: linear-gradient(135deg, #60a5fa, #c084fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
+</head>
+<body class="text-slate-200 antialiased min-h-screen">
+  
+  {% macro section_header(number, title, subtitle) %}
+  <div class="mb-10 relative">
+    <div class="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-blue-500 to-purple-600 rounded-full opacity-50"></div>
+    <span class="block text-xs text-blue-400 font-black uppercase tracking-[0.2em] mb-3">{{ number }} &mdash; {{ title }}</span>
+    <h2 class="text-4xl font-extrabold tracking-tight text-white">{{ subtitle }}</h2>
+  </div>
+  {% endmacro %}
+
+  {% macro stat_card(id, title, color_class) %}
+  <div class="glass-card p-8 text-center flex flex-col justify-center relative overflow-hidden group">
+    <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+    <b id="{{ id }}" class="block text-6xl font-black tracking-tighter {{ color_class }} relative z-10 drop-shadow-lg">0</b>
+    <span class="block text-xs text-slate-400 font-bold mt-4 uppercase tracking-[0.15em] relative z-10">{{ title }}</span>
+  </div>
+  {% endmacro %}
+
+  <div class="max-w-[1400px] mx-auto p-6 md:p-12 space-y-20">
+    
+    <!-- Header -->
+    <header class="text-center py-20 relative">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-500/20 rounded-full blur-[100px] -z-10"></div>
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/50 border border-slate-700/50 mb-8 backdrop-blur-md">
+        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+        <span class="text-sm font-medium text-slate-300">Live Agent Intelligence</span>
+      </div>
+      <h1 class="text-6xl md:text-7xl font-black tracking-tighter text-white mb-8 leading-tight">
+        Product <span class="gradient-text">Research</span> Platform
+      </h1>
+      <p class="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed font-light">100 apps researched autonomously via <span class="font-semibold text-white">Composio MCP</span> and <span class="font-semibold text-white">LLMs</span> to identify authentication patterns, gating, and agent buildability.</p>
+    </header>
+
+    <!-- KPIs -->
+    <section>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6" id="kpis_container">
+        {{ stat_card('kpi-total', 'Apps Researched', 'text-slate-200') }}
+        {{ stat_card('kpi-high', 'High Confidence', 'text-green-600') }}
+        {{ stat_card('kpi-tools', 'Composio Tools', 'text-purple-600') }}
+        {{ stat_card('kpi-supported', 'Supported Now', 'text-blue-600') }}
+        {{ stat_card('kpi-toolkits', 'With Toolkits', 'text-indigo-600') }}
+        {{ stat_card('kpi-self', 'Self-Serve Access', 'text-amber-600') }}
+      </div>
+    </section>
+
+    <!-- Patterns -->
+    <section>
+      {{ section_header('01', 'Patterns', 'What the data reveals') }}
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="glass-card p-8">
+          <span class="badge badge-blue mb-5">Auth Distribution</span>
+          <h3 class="text-2xl font-black tracking-tight text-white mb-4">OAuth2 dominates at 73%</h3>
+          <p class="text-slate-400 leading-relaxed">API keys (19%), Bearer tokens (5%), Basic Auth (1%), and auth-free tools (2%) make up the rest. OAuth credential lifecycle management is the core platform capability.</p>
+        </div>
+        <div class="glass-card p-8">
+          <span class="badge badge-green mb-5">Self-Serve vs Gated</span>
+          <h3 class="text-2xl font-black tracking-tight text-white mb-4">68 apps are self-serve</h3>
+          <p class="text-slate-400 leading-relaxed">Developer infra and productivity are the cleanest queue. Fintech, enterprise CRM, and ad platforms concentrate the gates. 6 apps need partnership outreach.</p>
+        </div>
+        <div class="glass-card p-8">
+          <span class="badge badge-purple mb-5">MCP Frontier</span>
+          <h3 class="text-2xl font-black tracking-tight text-white mb-4">39 apps have MCP signals</h3>
+          <p class="text-slate-400 leading-relaxed">Lark, Monday.com, ClickUp, Apify, Firecrawl, Ramp, Attio, Twenty, and Devin lead. MCP is still early &mdash; tracking it weekly is the competitive edge.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Workflow Diagram -->
+    <section>
+      {{ section_header('02', 'Workflow', 'How the pipeline works') }}
+      <div class="glass-card p-10 mb-6 flex justify-center bg-slate-900/50 border-dashed border-2">
+        <pre class="mermaid text-sm">
+graph TD
+    Start(["uv run python -m cli.main run-pipeline"]) --> S[Supervisor Agent]
+    S --> R[Research Agent<br/>Uses OpenRouter + Composio MCP]
+    R --> E[Evidence Agent]
+    E --> V[Verification Agent]
+    V --> C[Confidence Agent]
+    C --> H[Human Review Queue]
+    H --> P[Pattern Discovery]
+    P --> Report[HTML Report<br/>Reusable UI Components]
+        </pre>
+      </div>
+    </section>
+
+    <!-- Charts -->
+    <section>
+      {{ section_header('03', 'Visual Analysis', 'Distribution Charts') }}
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+        <div class="glass-card p-6 flex items-center justify-center min-h-[300px]"><canvas id="authChart"></canvas></div>
+        <div class="glass-card p-6 flex items-center justify-center min-h-[300px]"><canvas id="verdictChart"></canvas></div>
+        <div class="glass-card p-6 flex items-center justify-center min-h-[300px]"><canvas id="accessChart"></canvas></div>
+        <div class="glass-card p-6 flex items-center justify-center min-h-[300px]"><canvas id="mcpChart"></canvas></div>
+      </div>
+    </section>
+
+    <!-- Data Table -->
+    <section>
+      {{ section_header('04', 'Evidence Matrix', '100 apps, one sourcing queue') }}
+      
+      <div class="flex flex-wrap gap-4 mb-8 p-4 bg-slate-800/30 border border-slate-700/50 rounded-2xl backdrop-blur-sm">
+        <div class="relative flex-1 min-w-[280px]">
+          <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+            <svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+          </div>
+          <input id="search" placeholder="Search app, category, auth..." class="w-full bg-slate-900/50 border border-slate-700/50 rounded-xl pl-11 pr-5 py-3 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all shadow-sm placeholder-slate-500 hover:border-slate-600" />
+        </div>
+        <select id="categoryFilter" class="bg-slate-900/50 border border-slate-700/50 rounded-xl px-5 py-3 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all shadow-sm hover:border-slate-600 appearance-none pr-10 cursor-pointer" style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2394a3b8%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 1rem top 50%; background-size: 0.65rem auto;"></select>
+        <select id="confidenceFilter" class="bg-slate-900/50 border border-slate-700/50 rounded-xl px-5 py-3 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all shadow-sm hover:border-slate-600 appearance-none pr-10 cursor-pointer" style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2394a3b8%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 1rem top 50%; background-size: 0.65rem auto;">
+          <option value="">All confidence</option>
+          <option value="HIGH">HIGH</option>
+          <option value="MEDIUM">MEDIUM</option>
+          <option value="LOW">LOW</option>
+        </select>
+      </div>
+      
+      <div class="glass-card overflow-hidden">
+        <div class="overflow-x-auto h-[70vh]">
+          <table class="w-full text-sm min-w-[1200px] border-collapse text-left">
+            <thead>
+              <tr class="bg-slate-900">
+                <th class="sticky top-0 bg-slate-900/90 backdrop-blur-md z-10 text-xs font-bold text-slate-400 uppercase tracking-wider text-left p-4 border-b border-slate-800">APP</th>
+                <th class="sticky top-0 bg-slate-900/90 backdrop-blur-md z-10 text-xs font-bold text-slate-400 uppercase tracking-wider text-left p-4 border-b border-slate-800">DESCRIPTION</th>
+                <th class="sticky top-0 bg-slate-900/90 backdrop-blur-md z-10 text-xs font-bold text-slate-400 uppercase tracking-wider text-left p-4 border-b border-slate-800">AUTH</th>
+                <th class="sticky top-0 bg-slate-900/90 backdrop-blur-md z-10 text-xs font-bold text-slate-400 uppercase tracking-wider text-left p-4 border-b border-slate-800">ACCESS</th>
+                <th class="sticky top-0 bg-slate-900/90 backdrop-blur-md z-10 text-xs font-bold text-slate-400 uppercase tracking-wider text-left p-4 border-b border-slate-800">API<br/>SURFACE</th>
+                <th class="sticky top-0 bg-slate-900/90 backdrop-blur-md z-10 text-xs font-bold text-slate-400 uppercase tracking-wider text-left p-4 border-b border-slate-800 text-center">MCP</th>
+                <th class="sticky top-0 bg-slate-900/90 backdrop-blur-md z-10 text-xs font-bold text-slate-400 uppercase tracking-wider text-left p-4 border-b border-slate-800 text-center">COMPOSIO</th>
+                <th class="sticky top-0 bg-slate-900/90 backdrop-blur-md z-10 text-xs font-bold text-slate-400 uppercase tracking-wider text-left p-4 border-b border-slate-800">VERDICT</th>
+                <th class="sticky top-0 bg-slate-900/90 backdrop-blur-md z-10 text-xs font-bold text-slate-400 uppercase tracking-wider text-left p-4 border-b border-slate-800 text-center">CONFIDENCE</th>
+                <th class="sticky top-0 bg-slate-900/90 backdrop-blur-md z-10 text-xs font-bold text-slate-400 uppercase tracking-wider text-right p-4 border-b border-slate-800">EVIDENCE</th>
+              </tr>
+            </thead>
+            <tbody id="rows" class="divide-y divide-slate-800"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    
+    <footer class="text-center py-10 border-t border-slate-800 text-slate-500 text-sm">
+      <p class="font-semibold">Composio Product Research Platform &middot; AI Product Ops &middot; Raghav Kathuria</p>
+      <p class="mt-2 text-xs">Built using multi-agent parallel processing, OpenRouter models, and Composio MCP tools.</p>
+    </footer>
+
+  </div>
+
+  <script>
+{{ mermaid_js|safe }}
+  </script>
+  <script>mermaid.initialize({ startOnLoad: true, theme: 'dark', themeVariables: { primaryColor: '#1e293b', primaryTextColor: '#f8fafc', primaryBorderColor: '#334155', lineColor: '#64748b' } });</script>
+  <script>
+    const ROWS = {{ rows_json|safe }};
+    const STATS = {{ stats_json|safe }};
+    const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
+
+    // Populate KPIs
+    document.getElementById('kpi-total').textContent = ROWS.length;
+    document.getElementById('kpi-high').textContent = STATS.high_confidence || 0;
+    document.getElementById('kpi-tools').textContent = STATS.composio_total_tools || 0;
+    document.getElementById('kpi-supported').textContent = STATS.composio_supported || 0;
+    document.getElementById('kpi-toolkits').textContent = ROWS.filter(r=>r.composio_tools>0).length;
+    document.getElementById('kpi-self').textContent = ROWS.filter(r=>/self-serve|free|trial/i.test(r.access)&&!/enterprise|gate|paid.*only|contract|admin/i.test(r.access)).length;
+
+    // Populate category filter
+    const cats = [...new Set(ROWS.map(r=>r.category))];
+    const catSelect = document.getElementById('categoryFilter');
+    catSelect.innerHTML = '<option value="">All categories</option>' + cats.map(c => '<option value="'+esc(c)+'">'+esc(c)+'</option>').join('');
+
+    // Charts
+    function makeChart(id, type, labels, data, label, colors) {
+      new Chart(document.getElementById(id), {
+        type, data: { labels, datasets: [{ data, label, backgroundColor: colors||'#3b82f6', borderWidth:0 }] },
+        options: { responsive:true, maintainAspectRatio:false, plugins:{ legend:{ display:type==='doughnut', position:'right' } } }
+      });
+    }
+
+    const authDist = STATS.auth_families || {};
+    makeChart('authChart','doughnut',Object.keys(authDist),Object.values(authDist),'Auth',['#3b82f6','#10b981','#f59e0b','#ef4444','#8b5cf6']);
+
+    const verdicts = {High:ROWS.filter(r=>/^High/i.test(r.verdict)).length, Medium:ROWS.filter(r=>/^Medium/i.test(r.verdict)).length, Low:ROWS.filter(r=>/^Low/i.test(r.verdict)).length};
+    makeChart('verdictChart','doughnut',Object.keys(verdicts),Object.values(verdicts),'Verdict',['#10b981','#f59e0b','#ef4444']);
+
+    const isBuild = r => /self-serve|free|trial/i.test(r.access) && !/enterprise|gate|paid.*only|contract|admin|compliance/i.test(r.access);
+    const isOutreach = r => /low/i.test(r.verdict);
+    makeChart('accessChart','bar',['Self-Serve','Validate','Outreach'],[ROWS.filter(isBuild).length,ROWS.filter(r=>!isBuild(r)&&!isOutreach(r)).length,ROWS.filter(isOutreach).length],'Access',['#10b981','#f59e0b','#ef4444']);
+
+    const mcpCount = ROWS.filter(r=>r.mcp&&/mcp/i.test(r.mcp)&&!/no/i.test(r.mcp)).length;
+    makeChart('mcpChart','doughnut',['Has MCP','No MCP'],[mcpCount,ROWS.length-mcpCount],'MCP',['#8b5cf6','#cbd5e1']);
+
+    // Table render
+    function render() {
+      const q = document.getElementById('search').value.toLowerCase().trim();
+      const cat = document.getElementById('categoryFilter').value;
+      const cf = document.getElementById('confidenceFilter').value;
+      const filtered = ROWS.filter(r => {
+        const blob = [r.app,r.category,r.description,r.auth,r.access,r.api,r.verdict].join(' ').toLowerCase();
+        return (!q||blob.includes(q)) && (!cat||r.category===cat) && (!cf||(r.confidence||'LOW')===cf);
+      });
+      document.getElementById('rows').innerHTML = filtered.map(r => {
+        const ev = r.evidence ? '<a class="text-blue-600 hover:underline font-medium" href="'+esc(r.evidence)+'" target="_blank">Docs &nearr;</a>' : '';
+        const mc = r.mcp && /mcp/i.test(r.mcp) && !/no/i.test(r.mcp) ? '<span class="badge badge-purple">MCP</span>' : '';
+        const vk = /^Low/i.test(r.verdict) ? 'badge-red' : /^Medium/i.test(r.verdict) ? 'badge-amber' : 'badge-green';
+        const ck = r.confidence === 'HIGH' ? 'badge-green' : r.confidence === 'MEDIUM' ? 'badge-amber' : 'badge-red';
+        const cs = r.composio_supported ? '<span class="text-green-600 font-medium">&check; '+ (r.composio_tools||'') +' tools</span>' : '<span class="text-slate-400">&mdash;</span>';
+        return '<tr class="hover:bg-slate-900/50 transition-colors">' +
+          '<td class="px-5 py-4"><div class="font-bold text-white">'+esc(r.app)+'</div><div class="text-[11px] text-slate-500 mt-1 uppercase tracking-wide">'+esc(r.category)+'</div></td>'+
+          '<td class="px-5 py-4 text-slate-400 max-w-xs leading-relaxed" title="'+esc(r.description||'')+'">'+esc(r.description||'')+'</td>'+
+          '<td class="px-5 py-4 font-medium">'+esc(r.auth)+'</td>'+
+          '<td class="px-5 py-4">'+esc(r.access)+'</td>'+
+          '<td class="px-5 py-4">'+esc(r.api)+'</td>'+
+          '<td class="px-5 py-4">'+mc+'</td>'+
+          '<td class="px-5 py-4">'+cs+'</td>'+
+          '<td class="px-5 py-4"><span class="badge '+vk+'">'+esc(r.verdict).substring(0,35)+'</span></td>'+
+          '<td class="px-5 py-4"><span class="badge '+ck+'">'+r.confidence+'</span></td>'+
+          '<td class="px-5 py-4">'+ev+'</td>'+
+        '</tr>';
+      }).join('');
+    }
+    ['search','categoryFilter','confidenceFilter'].forEach(id => document.getElementById(id).addEventListener('input', render));
+    render();
+  </script>
+</body>
+</html>

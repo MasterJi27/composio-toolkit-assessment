@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  research:
+    build: .
+    container_name: composio-research
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+      - ./frontend:/app/frontend
+    command: composio-research run-pipeline
+
+  report:
+    build: .
+    container_name: composio-report
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./frontend:/app/frontend
+    command: composio-research build-report && composio-research serve --port 8000

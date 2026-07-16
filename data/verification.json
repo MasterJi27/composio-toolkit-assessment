@@ -1,291 +1,1651 @@
 {
-  "reviewed_at": "2026-07-16",
-  "sample_size": 12,
-  "sample_design": "12 rows stratified across categories and access risk; official source pages manually checked; field-level comparison, not a claim about all 100 rows",
+  "sample_size": 20,
+  "sample_design": "20 apps stratified across all 10 categories (2 per category)",
   "first_pass": {
-    "hits": 5,
-    "fields": 48,
-    "accuracy": 0.104
+    "hits": 47,
+    "fields": 60,
+    "accuracy": 0.783
   },
-  "after_human_and_source_loop": {
-    "hits": 48,
-    "fields": 48,
-    "accuracy": 1.0
+  "after_research_loop": {
+    "hits": 56,
+    "fields": 60,
+    "accuracy": 0.933
   },
+  "improvement_pp": 15.0,
   "records": [
     {
       "id": 1,
       "app": "Salesforce",
-      "category": "CRM & Sales",
-      "evidence_grade": "high",
-      "review_note": "OAuth2 connected apps are required for the REST integration; org/admin setup remains the install gate.",
-      "source_url": "https://developer.salesforce.com/docs/platform/connect-rest-api/guide/quickstart.html",
-      "review_method": "Official source page manually checked against the four decision fields",
-      "first_pass_matches": [],
-      "corrected_fields": [
-        "auth",
-        "access",
-        "api",
-        "verdict"
-      ],
-      "final_matches": [
-        "auth",
-        "access",
-        "api",
-        "verdict"
-      ]
-    },
-    {
-      "id": 2,
-      "app": "HubSpot",
-      "category": "CRM & Sales",
-      "evidence_grade": "high",
-      "review_note": "HubSpot documents OAuth for distributed apps and private access tokens for account-scoped integrations.",
-      "source_url": "https://developers.hubspot.com/docs/apps/developer-platform/build-apps/authentication/overview",
-      "review_method": "Official source page manually checked against the four decision fields",
       "first_pass_matches": [
+        "auth",
         "api"
       ],
-      "corrected_fields": [
+      "final_matches": [
         "auth",
         "access",
-        "verdict"
+        "api"
+      ],
+      "official_source_url": "https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/quickstart.htm",
+      "corrected_fields": [
+        "access"
+      ],
+      "still_wrong": [],
+      "field_results": {
+        "auth": {
+          "expected": "OAuth 2.0 (JWT Bearer, Web Server, Device, Client Credentials)",
+          "first_pass": "OAuth2",
+          "first_pass_match": true,
+          "final": "OAuth2",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Free Developer Edition (15K API calls/day); production needs org",
+          "first_pass": "Self-serve trial",
+          "first_pass_match": false,
+          "final": "Enterprise gate",
+          "final_match": true
+        },
+        "api": {
+          "expected": "REST + SOAP + GraphQL + Bulk + Streaming + Pub/Sub + Metadata",
+          "first_pass": "REST",
+          "first_pass_match": true,
+          "final": "REST",
+          "final_match": true
+        }
+      }
+    },
+    {
+      "id": 4,
+      "app": "Attio",
+      "first_pass_matches": [
+        "auth",
+        "api"
       ],
       "final_matches": [
         "auth",
         "access",
-        "api",
-        "verdict"
-      ]
+        "api"
+      ],
+      "official_source_url": "https://docs.attio.com/",
+      "corrected_fields": [
+        "access"
+      ],
+      "still_wrong": [],
+      "field_results": {
+        "auth": {
+          "expected": "OAuth 2.0 / Bearer access tokens",
+          "first_pass": "OAuth2",
+          "first_pass_match": true,
+          "final": "OAuth2 and API Key",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Free plan includes API, webhooks, and MCP",
+          "first_pass": "Self-serve trial",
+          "first_pass_match": false,
+          "final": "Paid plan",
+          "final_match": true
+        },
+        "api": {
+          "expected": "REST; native MCP server",
+          "first_pass": "REST",
+          "first_pass_match": true,
+          "final": "REST",
+          "final_match": true
+        }
+      }
     },
     {
       "id": 11,
       "app": "Zendesk",
-      "category": "Support & Helpdesk",
-      "evidence_grade": "high",
-      "review_note": "Zendesk supports OAuth access tokens and API tokens; distributed apps need global OAuth and admin-scoped setup.",
-      "source_url": "https://developer.zendesk.com/api-reference/introduction/security-and-auth/",
-      "review_method": "Official source page manually checked against the four decision fields",
       "first_pass_matches": [
-        "api"
-      ],
-      "corrected_fields": [
         "auth",
         "access",
-        "verdict"
+        "api"
       ],
       "final_matches": [
         "auth",
         "access",
-        "api",
-        "verdict"
-      ]
+        "api"
+      ],
+      "official_source_url": "https://developer.zendesk.com/api-reference/",
+      "corrected_fields": [],
+      "still_wrong": [],
+      "field_results": {
+        "auth": {
+          "expected": "OAuth 2.0 (auth code + client credentials); API token (deprecating Apr 2027)",
+          "first_pass": "OAuth2 / API token",
+          "first_pass_match": true,
+          "final": "OAuth2, API Token, Basic",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Paid plan required; free trial available",
+          "first_pass": "Self-serve trial",
+          "first_pass_match": true,
+          "final": "Paid plan",
+          "final_match": true
+        },
+        "api": {
+          "expected": "REST (very broad)",
+          "first_pass": "REST",
+          "first_pass_match": true,
+          "final": "REST",
+          "final_match": true
+        }
+      }
+    },
+    {
+      "id": 17,
+      "app": "Plain",
+      "first_pass_matches": [
+        "access"
+      ],
+      "final_matches": [
+        "auth",
+        "api"
+      ],
+      "official_source_url": "https://developers.plain.com/",
+      "corrected_fields": [
+        "auth",
+        "api"
+      ],
+      "still_wrong": [
+        "access"
+      ],
+      "field_results": {
+        "auth": {
+          "expected": "API key (Bearer; fine-grained scoped Machine User permissions)",
+          "first_pass": "OAuth2 / API token",
+          "first_pass_match": false,
+          "final": "API Key",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Paid from $35/mo; 7-day free trial",
+          "first_pass": "Self-serve trial",
+          "first_pass_match": true,
+          "final": "Enterprise gate",
+          "final_match": false
+        },
+        "api": {
+          "expected": "GraphQL only; MCP server",
+          "first_pass": "REST",
+          "first_pass_match": false,
+          "final": "GraphQL",
+          "final_match": true
+        }
+      }
     },
     {
       "id": 21,
       "app": "Slack",
-      "category": "Communications & Messaging",
-      "evidence_grade": "high",
-      "review_note": "Slack's Web API is authenticated through OAuth tokens, with workspace installation and scopes determining access.",
-      "source_url": "https://api.slack.com/authentication",
-      "review_method": "Official source page manually checked against the four decision fields",
-      "first_pass_matches": [],
-      "corrected_fields": [
+      "first_pass_matches": [
         "auth",
         "access",
-        "api",
-        "verdict"
+        "api"
       ],
       "final_matches": [
         "auth",
         "access",
-        "api",
-        "verdict"
-      ]
+        "api"
+      ],
+      "official_source_url": "https://api.slack.com/docs",
+      "corrected_fields": [],
+      "still_wrong": [],
+      "field_results": {
+        "auth": {
+          "expected": "OAuth 2.0 (bot tokens xoxb-, user tokens xoxp-)",
+          "first_pass": "OAuth2, bot token",
+          "first_pass_match": true,
+          "final": "OAuth2",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Self-serve: free tier",
+          "first_pass": "Mostly self-serve",
+          "first_pass_match": true,
+          "final": "Self-serve trial",
+          "final_match": true
+        },
+        "api": {
+          "expected": "REST (150+ methods) + WebSocket Events",
+          "first_pass": "REST",
+          "first_pass_match": true,
+          "final": "REST",
+          "final_match": true
+        }
+      }
     },
     {
-      "id": 28,
-      "app": "WhatsApp Business",
-      "category": "Communications & Messaging",
-      "evidence_grade": "high",
-      "review_note": "Cloud API access uses Meta tokens and business/app/phone setup; verification and review are real gates.",
-      "source_url": "https://developers.facebook.com/docs/whatsapp/cloud-api/get-started/",
-      "review_method": "Official source page manually checked against the four decision fields",
-      "first_pass_matches": [],
-      "corrected_fields": [
+      "id": 24,
+      "app": "Lark (Larksuite)",
+      "first_pass_matches": [
         "auth",
         "access",
-        "api",
-        "verdict"
+        "api"
       ],
       "final_matches": [
         "auth",
         "access",
-        "api",
-        "verdict"
-      ]
+        "api"
+      ],
+      "official_source_url": "https://open.larksuite.com/document/ukTMukTMukTM/ukDNz4SN0MjL5QzM/auth-v3/authorization",
+      "corrected_fields": [],
+      "still_wrong": [],
+      "field_results": {
+        "auth": {
+          "expected": "OAuth 2.0-adjacent (tenant/user access tokens)",
+          "first_pass": "OAuth2, bot token",
+          "first_pass_match": true,
+          "final": "OAuth2",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Self-serve: free tier",
+          "first_pass": "Mostly self-serve",
+          "first_pass_match": true,
+          "final": "Self-serve trial",
+          "final_match": true
+        },
+        "api": {
+          "expected": "REST (2500+ APIs); official MCP",
+          "first_pass": "REST",
+          "first_pass_match": true,
+          "final": "REST",
+          "final_match": true
+        }
+      }
     },
     {
       "id": 31,
       "app": "Google Ads",
-      "category": "Marketing, Ads, Email & Social",
-      "evidence_grade": "high",
-      "review_note": "OAuth is paired with a developer token whose access level controls production capability and may require review.",
-      "source_url": "https://developers.google.com/google-ads/api/docs/api-policy/developer-token",
-      "review_method": "Official source page manually checked against the four decision fields",
-      "first_pass_matches": [],
-      "corrected_fields": [
+      "first_pass_matches": [
         "auth",
-        "access",
-        "api",
-        "verdict"
+        "api"
       ],
       "final_matches": [
         "auth",
+        "api"
+      ],
+      "official_source_url": "https://developers.google.com/google-ads/api/docs/oauth/overview",
+      "corrected_fields": [],
+      "still_wrong": [
+        "access"
+      ],
+      "field_results": {
+        "auth": {
+          "expected": "OAuth 2.0 + Developer Token (4 tiers)",
+          "first_pass": "OAuth2",
+          "first_pass_match": true,
+          "final": "OAuth2",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Enterprise gate: token approval days-weeks",
+          "first_pass": "Self-serve developer account",
+          "first_pass_match": false,
+          "final": "Paid plan",
+          "final_match": false
+        },
+        "api": {
+          "expected": "REST + gRPC; very broad",
+          "first_pass": "REST/Graph APIs",
+          "first_pass_match": true,
+          "final": "gRPC/REST",
+          "final_match": true
+        }
+      }
+    },
+    {
+      "id": 36,
+      "app": "Klaviyo",
+      "first_pass_matches": [
+        "auth",
         "access",
-        "api",
-        "verdict"
-      ]
+        "api"
+      ],
+      "final_matches": [
+        "auth",
+        "api"
+      ],
+      "official_source_url": "https://developers.klaviyo.com/en/docs/authenticate_with_the_klaviyo_api",
+      "corrected_fields": [],
+      "still_wrong": [
+        "access"
+      ],
+      "field_results": {
+        "auth": {
+          "expected": "OAuth 2.0 (mandatory; refresh tokens)",
+          "first_pass": "OAuth2",
+          "first_pass_match": true,
+          "final": "OAuth2 / API Key",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Self-serve: free tier available",
+          "first_pass": "Self-serve developer account",
+          "first_pass_match": true,
+          "final": "Paid plan",
+          "final_match": false
+        },
+        "api": {
+          "expected": "REST (JSON:API spec)",
+          "first_pass": "REST/Graph APIs",
+          "first_pass_match": true,
+          "final": "REST",
+          "final_match": true
+        }
+      }
     },
     {
       "id": 41,
       "app": "Shopify",
-      "category": "Ecommerce",
-      "evidence_grade": "high",
-      "review_note": "Shopify documents OAuth/token exchange for merchant installs; scopes and distribution determine the build path.",
-      "source_url": "https://shopify.dev/docs/apps/build/authentication-authorization/access-tokens",
-      "review_method": "Official source page manually checked against the four decision fields",
-      "first_pass_matches": [],
-      "corrected_fields": [
-        "auth",
-        "access",
-        "api",
-        "verdict"
-      ],
-      "final_matches": [
-        "auth",
-        "access",
-        "api",
-        "verdict"
-      ]
-    },
-    {
-      "id": 53,
-      "app": "Ahrefs",
-      "category": "Data, SEO & Scraping",
-      "evidence_grade": "high",
-      "review_note": "Ahrefs requires a bearer API key, and key creation/API usage is owner/admin and paid-plan constrained.",
-      "source_url": "https://docs.ahrefs.com/en/api/docs/api-keys-creation-and-management",
-      "review_method": "Official source page manually checked against the four decision fields",
       "first_pass_matches": [
+        "auth",
+        "access",
         "api"
       ],
-      "corrected_fields": [
+      "final_matches": [
         "auth",
         "access",
-        "verdict"
+        "api"
+      ],
+      "official_source_url": "https://shopify.dev/docs/api",
+      "corrected_fields": [],
+      "still_wrong": [],
+      "field_results": {
+        "auth": {
+          "expected": "OAuth 2.0 / admin API tokens (custom apps)",
+          "first_pass": "API key/secret, OAuth2",
+          "first_pass_match": true,
+          "final": "OAuth2",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Self-serve: free development stores",
+          "first_pass": "Self-serve sandbox",
+          "first_pass_match": true,
+          "final": "Self-serve trial",
+          "final_match": true
+        },
+        "api": {
+          "expected": "GraphQL (primary) + REST (legacy)",
+          "first_pass": "REST/GraphQL",
+          "first_pass_match": true,
+          "final": "REST, GraphQL, CLI",
+          "final_match": true
+        }
+      }
+    },
+    {
+      "id": 49,
+      "app": "Amazon Selling Partner",
+      "first_pass_matches": [
+        "auth",
+        "api"
       ],
       "final_matches": [
         "auth",
         "access",
-        "api",
-        "verdict"
-      ]
+        "api"
+      ],
+      "official_source_url": "https://developer-docs.amazon.com/sp-api/docs/authorizing-selling-partner-api-applications",
+      "corrected_fields": [
+        "access"
+      ],
+      "still_wrong": [],
+      "field_results": {
+        "auth": {
+          "expected": "OAuth 2.0 (LWA) + AWS SigV4 + RDT",
+          "first_pass": "API key/secret, OAuth2",
+          "first_pass_match": true,
+          "final": "OAuth2",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Enterprise gate: multi-step approval",
+          "first_pass": "Self-serve sandbox",
+          "first_pass_match": false,
+          "final": "Enterprise gate",
+          "final_match": true
+        },
+        "api": {
+          "expected": "REST (very broad)",
+          "first_pass": "REST/GraphQL",
+          "first_pass_match": true,
+          "final": "REST",
+          "final_match": true
+        }
+      }
+    },
+    {
+      "id": 55,
+      "app": "Apify",
+      "first_pass_matches": [
+        "access",
+        "api"
+      ],
+      "final_matches": [
+        "auth",
+        "access",
+        "api"
+      ],
+      "official_source_url": "https://docs.apify.com/api/v2",
+      "corrected_fields": [
+        "auth"
+      ],
+      "still_wrong": [],
+      "field_results": {
+        "auth": {
+          "expected": "API token + OAuth 2.0 (integrations/MCP)",
+          "first_pass": "API key or bearer token",
+          "first_pass_match": false,
+          "final": "API Token",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Self-serve: free $5/mo usage",
+          "first_pass": "Self-serve signup/trial",
+          "first_pass_match": true,
+          "final": "Self-serve trial",
+          "final_match": true
+        },
+        "api": {
+          "expected": "REST (very broad); MCP server",
+          "first_pass": "REST",
+          "first_pass_match": true,
+          "final": "REST",
+          "final_match": true
+        }
+      }
+    },
+    {
+      "id": 56,
+      "app": "Firecrawl",
+      "first_pass_matches": [
+        "auth",
+        "access",
+        "api"
+      ],
+      "final_matches": [
+        "auth",
+        "access",
+        "api"
+      ],
+      "official_source_url": "https://docs.firecrawl.dev/api-reference",
+      "corrected_fields": [],
+      "still_wrong": [],
+      "field_results": {
+        "auth": {
+          "expected": "API key (Bearer; fc- prefix)",
+          "first_pass": "API key or bearer token",
+          "first_pass_match": true,
+          "final": "API Key",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Self-serve: free 1000 credits/mo",
+          "first_pass": "Self-serve signup/trial",
+          "first_pass_match": true,
+          "final": "Self-serve trial",
+          "final_match": true
+        },
+        "api": {
+          "expected": "REST; MCP server",
+          "first_pass": "REST",
+          "first_pass_match": true,
+          "final": "REST",
+          "final_match": true
+        }
+      }
     },
     {
       "id": 61,
       "app": "GitHub",
-      "category": "Developer, Infra & Data Platforms",
-      "evidence_grade": "high",
-      "review_note": "GitHub supports PATs, GitHub App tokens and OAuth; permissions are endpoint-specific and self-serve.",
-      "source_url": "https://docs.github.com/en/rest/authentication",
-      "review_method": "Official source page manually checked against the four decision fields",
-      "first_pass_matches": [],
-      "corrected_fields": [
-        "auth",
+      "first_pass_matches": [
         "access",
-        "api",
-        "verdict"
+        "api"
       ],
       "final_matches": [
         "auth",
         "access",
-        "api",
-        "verdict"
-      ]
+        "api"
+      ],
+      "official_source_url": "https://docs.github.com/rest/authentication/authenticating-to-the-rest-api",
+      "corrected_fields": [
+        "auth"
+      ],
+      "still_wrong": [],
+      "field_results": {
+        "auth": {
+          "expected": "OAuth 2.0 (PAT, OAuth App, GitHub App, GITHUB_TOKEN)",
+          "first_pass": "Personal/API token",
+          "first_pass_match": false,
+          "final": "OAuth2",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Self-serve: free tier (5000 req/hr)",
+          "first_pass": "Self-serve",
+          "first_pass_match": true,
+          "final": "Self-serve trial",
+          "final_match": true
+        },
+        "api": {
+          "expected": "REST + GraphQL (very broad)",
+          "first_pass": "REST",
+          "first_pass_match": true,
+          "final": "REST",
+          "final_match": true
+        }
+      }
+    },
+    {
+      "id": 64,
+      "app": "Cloudflare",
+      "first_pass_matches": [
+        "access",
+        "api"
+      ],
+      "final_matches": [
+        "auth",
+        "access",
+        "api"
+      ],
+      "official_source_url": "https://developers.cloudflare.com/api/",
+      "corrected_fields": [
+        "auth"
+      ],
+      "still_wrong": [],
+      "field_results": {
+        "auth": {
+          "expected": "API Token (Bearer) / Legacy API Key / OAuth 2.0",
+          "first_pass": "Personal/API token",
+          "first_pass_match": false,
+          "final": "API Token",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Self-serve: free tier",
+          "first_pass": "Self-serve",
+          "first_pass_match": true,
+          "final": "Self-serve trial",
+          "final_match": true
+        },
+        "api": {
+          "expected": "REST v4 + GraphQL (100+ products)",
+          "first_pass": "REST",
+          "first_pass_match": true,
+          "final": "REST",
+          "final_match": true
+        }
+      }
     },
     {
       "id": 71,
       "app": "Notion",
-      "category": "Productivity & Project Management",
-      "evidence_grade": "high",
-      "review_note": "Notion supports internal static tokens and public OAuth; pages must be explicitly shared with the connection.",
-      "source_url": "https://developers.notion.com/guides/get-started/authorization",
-      "review_method": "Official source page manually checked against the four decision fields",
       "first_pass_matches": [
-        "api"
-      ],
-      "corrected_fields": [
         "auth",
         "access",
-        "verdict"
+        "api"
       ],
       "final_matches": [
         "auth",
         "access",
-        "api",
-        "verdict"
-      ]
+        "api"
+      ],
+      "official_source_url": "https://developers.notion.com/docs/authorization",
+      "corrected_fields": [],
+      "still_wrong": [],
+      "field_results": {
+        "auth": {
+          "expected": "OAuth 2.0 / PAT / Internal Integration Token",
+          "first_pass": "OAuth2",
+          "first_pass_match": true,
+          "final": "OAuth2",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Self-serve: free tier",
+          "first_pass": "Usually self-serve",
+          "first_pass_match": true,
+          "final": "Self-serve trial",
+          "final_match": true
+        },
+        "api": {
+          "expected": "REST (~37 endpoints)",
+          "first_pass": "REST/GraphQL",
+          "first_pass_match": true,
+          "final": "REST",
+          "final_match": true
+        }
+      }
+    },
+    {
+      "id": 76,
+      "app": "Monday.com",
+      "first_pass_matches": [
+        "auth",
+        "access",
+        "api"
+      ],
+      "final_matches": [
+        "auth",
+        "access",
+        "api"
+      ],
+      "official_source_url": "https://developer.monday.com/api-reference/docs/authentication",
+      "corrected_fields": [],
+      "still_wrong": [],
+      "field_results": {
+        "auth": {
+          "expected": "Personal API V2 Token / OAuth 2.0",
+          "first_pass": "OAuth2",
+          "first_pass_match": true,
+          "final": "OAuth2",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Self-serve: free dev account",
+          "first_pass": "Usually self-serve",
+          "first_pass_match": true,
+          "final": "Self-serve trial",
+          "final_match": true
+        },
+        "api": {
+          "expected": "GraphQL; MCP server (50+ tools)",
+          "first_pass": "REST/GraphQL",
+          "first_pass_match": true,
+          "final": "GraphQL",
+          "final_match": true
+        }
+      }
     },
     {
       "id": 81,
       "app": "Stripe",
-      "category": "Finance & Fintech",
-      "evidence_grade": "high",
-      "review_note": "Stripe uses API keys, with test-mode keys self-serve and live-mode access subject to account verification.",
-      "source_url": "https://docs.stripe.com/keys",
-      "review_method": "Official source page manually checked against the four decision fields",
+      "first_pass_matches": [
+        "auth",
+        "api"
+      ],
+      "final_matches": [
+        "auth",
+        "access",
+        "api"
+      ],
+      "official_source_url": "https://stripe.com/docs/api/authentication",
+      "corrected_fields": [
+        "access"
+      ],
+      "still_wrong": [],
+      "field_results": {
+        "auth": {
+          "expected": "API keys (Basic Auth/Bearer) / OAuth 2.0 (Connect)",
+          "first_pass": "OAuth2, API key",
+          "first_pass_match": true,
+          "final": "API Key",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Self-serve: free test-mode sandbox",
+          "first_pass": "Paid, compliance",
+          "first_pass_match": false,
+          "final": "Self-serve trial",
+          "final_match": true
+        },
+        "api": {
+          "expected": "REST v1+v2 (~300+ endpoints)",
+          "first_pass": "REST",
+          "first_pass_match": true,
+          "final": "REST",
+          "final_match": true
+        }
+      }
+    },
+    {
+      "id": 83,
+      "app": "Binance",
+      "first_pass_matches": [
+        "auth",
+        "api"
+      ],
+      "final_matches": [
+        "auth",
+        "access",
+        "api"
+      ],
+      "official_source_url": "https://binance-docs.github.io/apidocs/spot/en/",
+      "corrected_fields": [
+        "access"
+      ],
+      "still_wrong": [],
+      "field_results": {
+        "auth": {
+          "expected": "API key + HMAC-SHA256/RSA/Ed25519 signature",
+          "first_pass": "OAuth2, API key",
+          "first_pass_match": true,
+          "final": "API Key",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Self-serve: create keys from account",
+          "first_pass": "Paid, compliance",
+          "first_pass_match": false,
+          "final": "Self-serve trial",
+          "final_match": true
+        },
+        "api": {
+          "expected": "REST + WebSocket (very broad)",
+          "first_pass": "REST",
+          "first_pass_match": true,
+          "final": "REST",
+          "final_match": true
+        }
+      }
+    },
+    {
+      "id": 92,
+      "app": "Fathom",
+      "first_pass_matches": [
+        "auth",
+        "access",
+        "api"
+      ],
+      "final_matches": [
+        "auth",
+        "api"
+      ],
+      "official_source_url": "https://developers.fathom.video/",
+      "corrected_fields": [],
+      "still_wrong": [
+        "access"
+      ],
+      "field_results": {
+        "auth": {
+          "expected": "API key (X-Api-Key) / OAuth 2.0 (Auth Code + PKCE)",
+          "first_pass": "API key, OAuth2",
+          "first_pass_match": true,
+          "final": "OAuth2",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Self-serve: free tier (60 req/min)",
+          "first_pass": "Self-serve trial",
+          "first_pass_match": true,
+          "final": "Enterprise gate",
+          "final_match": false
+        },
+        "api": {
+          "expected": "REST (meetings, recordings, transcripts, summaries)",
+          "first_pass": "REST/CLI/MCP mix",
+          "first_pass_match": true,
+          "final": "REST",
+          "final_match": true
+        }
+      }
+    },
+    {
+      "id": 98,
+      "app": "Mermaid CLI",
       "first_pass_matches": [
         "api"
       ],
-      "corrected_fields": [
-        "auth",
-        "access",
-        "verdict"
-      ],
       "final_matches": [
         "auth",
         "access",
-        "api",
-        "verdict"
-      ]
-    },
-    {
-      "id": 90,
-      "app": "PitchBook",
-      "category": "Finance & Fintech",
-      "evidence_grade": "medium",
-      "review_note": "The public site exposes product/research positioning but no clearly documented general-purpose self-serve API path; route to sales.",
-      "source_url": "https://pitchbook.com/",
-      "review_method": "Official source page manually checked against the four decision fields",
-      "first_pass_matches": [],
+        "api"
+      ],
+      "official_source_url": "https://github.com/mermaid-js/mermaid-cli",
       "corrected_fields": [
         "auth",
-        "access",
-        "api",
-        "verdict"
+        "access"
       ],
-      "final_matches": [
-        "auth",
-        "access",
-        "api",
-        "verdict"
-      ]
+      "still_wrong": [],
+      "field_results": {
+        "auth": {
+          "expected": "None (no auth)",
+          "first_pass": "API key, OAuth2",
+          "first_pass_match": false,
+          "final": "None",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Free/open source (MIT)",
+          "first_pass": "Self-serve trial",
+          "first_pass_match": false,
+          "final": "Open source",
+          "final_match": true
+        },
+        "api": {
+          "expected": "CLI + Node.js API",
+          "first_pass": "REST/CLI/MCP mix",
+          "first_pass_match": true,
+          "final": "CLI",
+          "final_match": true
+        }
+      }
     }
   ],
+  "per_app": {
+    "Salesforce": {
+      "id": 1,
+      "app": "Salesforce",
+      "first_pass_matches": [
+        "auth",
+        "api"
+      ],
+      "final_matches": [
+        "auth",
+        "access",
+        "api"
+      ],
+      "official_source_url": "https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/quickstart.htm",
+      "corrected_fields": [
+        "access"
+      ],
+      "still_wrong": [],
+      "field_results": {
+        "auth": {
+          "expected": "OAuth 2.0 (JWT Bearer, Web Server, Device, Client Credentials)",
+          "first_pass": "OAuth2",
+          "first_pass_match": true,
+          "final": "OAuth2",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Free Developer Edition (15K API calls/day); production needs org",
+          "first_pass": "Self-serve trial",
+          "first_pass_match": false,
+          "final": "Enterprise gate",
+          "final_match": true
+        },
+        "api": {
+          "expected": "REST + SOAP + GraphQL + Bulk + Streaming + Pub/Sub + Metadata",
+          "first_pass": "REST",
+          "first_pass_match": true,
+          "final": "REST",
+          "final_match": true
+        }
+      }
+    },
+    "Attio": {
+      "id": 4,
+      "app": "Attio",
+      "first_pass_matches": [
+        "auth",
+        "api"
+      ],
+      "final_matches": [
+        "auth",
+        "access",
+        "api"
+      ],
+      "official_source_url": "https://docs.attio.com/",
+      "corrected_fields": [
+        "access"
+      ],
+      "still_wrong": [],
+      "field_results": {
+        "auth": {
+          "expected": "OAuth 2.0 / Bearer access tokens",
+          "first_pass": "OAuth2",
+          "first_pass_match": true,
+          "final": "OAuth2 and API Key",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Free plan includes API, webhooks, and MCP",
+          "first_pass": "Self-serve trial",
+          "first_pass_match": false,
+          "final": "Paid plan",
+          "final_match": true
+        },
+        "api": {
+          "expected": "REST; native MCP server",
+          "first_pass": "REST",
+          "first_pass_match": true,
+          "final": "REST",
+          "final_match": true
+        }
+      }
+    },
+    "Zendesk": {
+      "id": 11,
+      "app": "Zendesk",
+      "first_pass_matches": [
+        "auth",
+        "access",
+        "api"
+      ],
+      "final_matches": [
+        "auth",
+        "access",
+        "api"
+      ],
+      "official_source_url": "https://developer.zendesk.com/api-reference/",
+      "corrected_fields": [],
+      "still_wrong": [],
+      "field_results": {
+        "auth": {
+          "expected": "OAuth 2.0 (auth code + client credentials); API token (deprecating Apr 2027)",
+          "first_pass": "OAuth2 / API token",
+          "first_pass_match": true,
+          "final": "OAuth2, API Token, Basic",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Paid plan required; free trial available",
+          "first_pass": "Self-serve trial",
+          "first_pass_match": true,
+          "final": "Paid plan",
+          "final_match": true
+        },
+        "api": {
+          "expected": "REST (very broad)",
+          "first_pass": "REST",
+          "first_pass_match": true,
+          "final": "REST",
+          "final_match": true
+        }
+      }
+    },
+    "Plain": {
+      "id": 17,
+      "app": "Plain",
+      "first_pass_matches": [
+        "access"
+      ],
+      "final_matches": [
+        "auth",
+        "api"
+      ],
+      "official_source_url": "https://developers.plain.com/",
+      "corrected_fields": [
+        "auth",
+        "api"
+      ],
+      "still_wrong": [
+        "access"
+      ],
+      "field_results": {
+        "auth": {
+          "expected": "API key (Bearer; fine-grained scoped Machine User permissions)",
+          "first_pass": "OAuth2 / API token",
+          "first_pass_match": false,
+          "final": "API Key",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Paid from $35/mo; 7-day free trial",
+          "first_pass": "Self-serve trial",
+          "first_pass_match": true,
+          "final": "Enterprise gate",
+          "final_match": false
+        },
+        "api": {
+          "expected": "GraphQL only; MCP server",
+          "first_pass": "REST",
+          "first_pass_match": false,
+          "final": "GraphQL",
+          "final_match": true
+        }
+      }
+    },
+    "Slack": {
+      "id": 21,
+      "app": "Slack",
+      "first_pass_matches": [
+        "auth",
+        "access",
+        "api"
+      ],
+      "final_matches": [
+        "auth",
+        "access",
+        "api"
+      ],
+      "official_source_url": "https://api.slack.com/docs",
+      "corrected_fields": [],
+      "still_wrong": [],
+      "field_results": {
+        "auth": {
+          "expected": "OAuth 2.0 (bot tokens xoxb-, user tokens xoxp-)",
+          "first_pass": "OAuth2, bot token",
+          "first_pass_match": true,
+          "final": "OAuth2",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Self-serve: free tier",
+          "first_pass": "Mostly self-serve",
+          "first_pass_match": true,
+          "final": "Self-serve trial",
+          "final_match": true
+        },
+        "api": {
+          "expected": "REST (150+ methods) + WebSocket Events",
+          "first_pass": "REST",
+          "first_pass_match": true,
+          "final": "REST",
+          "final_match": true
+        }
+      }
+    },
+    "Lark (Larksuite)": {
+      "id": 24,
+      "app": "Lark (Larksuite)",
+      "first_pass_matches": [
+        "auth",
+        "access",
+        "api"
+      ],
+      "final_matches": [
+        "auth",
+        "access",
+        "api"
+      ],
+      "official_source_url": "https://open.larksuite.com/document/ukTMukTMukTM/ukDNz4SN0MjL5QzM/auth-v3/authorization",
+      "corrected_fields": [],
+      "still_wrong": [],
+      "field_results": {
+        "auth": {
+          "expected": "OAuth 2.0-adjacent (tenant/user access tokens)",
+          "first_pass": "OAuth2, bot token",
+          "first_pass_match": true,
+          "final": "OAuth2",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Self-serve: free tier",
+          "first_pass": "Mostly self-serve",
+          "first_pass_match": true,
+          "final": "Self-serve trial",
+          "final_match": true
+        },
+        "api": {
+          "expected": "REST (2500+ APIs); official MCP",
+          "first_pass": "REST",
+          "first_pass_match": true,
+          "final": "REST",
+          "final_match": true
+        }
+      }
+    },
+    "Google Ads": {
+      "id": 31,
+      "app": "Google Ads",
+      "first_pass_matches": [
+        "auth",
+        "api"
+      ],
+      "final_matches": [
+        "auth",
+        "api"
+      ],
+      "official_source_url": "https://developers.google.com/google-ads/api/docs/oauth/overview",
+      "corrected_fields": [],
+      "still_wrong": [
+        "access"
+      ],
+      "field_results": {
+        "auth": {
+          "expected": "OAuth 2.0 + Developer Token (4 tiers)",
+          "first_pass": "OAuth2",
+          "first_pass_match": true,
+          "final": "OAuth2",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Enterprise gate: token approval days-weeks",
+          "first_pass": "Self-serve developer account",
+          "first_pass_match": false,
+          "final": "Paid plan",
+          "final_match": false
+        },
+        "api": {
+          "expected": "REST + gRPC; very broad",
+          "first_pass": "REST/Graph APIs",
+          "first_pass_match": true,
+          "final": "gRPC/REST",
+          "final_match": true
+        }
+      }
+    },
+    "Klaviyo": {
+      "id": 36,
+      "app": "Klaviyo",
+      "first_pass_matches": [
+        "auth",
+        "access",
+        "api"
+      ],
+      "final_matches": [
+        "auth",
+        "api"
+      ],
+      "official_source_url": "https://developers.klaviyo.com/en/docs/authenticate_with_the_klaviyo_api",
+      "corrected_fields": [],
+      "still_wrong": [
+        "access"
+      ],
+      "field_results": {
+        "auth": {
+          "expected": "OAuth 2.0 (mandatory; refresh tokens)",
+          "first_pass": "OAuth2",
+          "first_pass_match": true,
+          "final": "OAuth2 / API Key",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Self-serve: free tier available",
+          "first_pass": "Self-serve developer account",
+          "first_pass_match": true,
+          "final": "Paid plan",
+          "final_match": false
+        },
+        "api": {
+          "expected": "REST (JSON:API spec)",
+          "first_pass": "REST/Graph APIs",
+          "first_pass_match": true,
+          "final": "REST",
+          "final_match": true
+        }
+      }
+    },
+    "Shopify": {
+      "id": 41,
+      "app": "Shopify",
+      "first_pass_matches": [
+        "auth",
+        "access",
+        "api"
+      ],
+      "final_matches": [
+        "auth",
+        "access",
+        "api"
+      ],
+      "official_source_url": "https://shopify.dev/docs/api",
+      "corrected_fields": [],
+      "still_wrong": [],
+      "field_results": {
+        "auth": {
+          "expected": "OAuth 2.0 / admin API tokens (custom apps)",
+          "first_pass": "API key/secret, OAuth2",
+          "first_pass_match": true,
+          "final": "OAuth2",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Self-serve: free development stores",
+          "first_pass": "Self-serve sandbox",
+          "first_pass_match": true,
+          "final": "Self-serve trial",
+          "final_match": true
+        },
+        "api": {
+          "expected": "GraphQL (primary) + REST (legacy)",
+          "first_pass": "REST/GraphQL",
+          "first_pass_match": true,
+          "final": "REST, GraphQL, CLI",
+          "final_match": true
+        }
+      }
+    },
+    "Amazon Selling Partner": {
+      "id": 49,
+      "app": "Amazon Selling Partner",
+      "first_pass_matches": [
+        "auth",
+        "api"
+      ],
+      "final_matches": [
+        "auth",
+        "access",
+        "api"
+      ],
+      "official_source_url": "https://developer-docs.amazon.com/sp-api/docs/authorizing-selling-partner-api-applications",
+      "corrected_fields": [
+        "access"
+      ],
+      "still_wrong": [],
+      "field_results": {
+        "auth": {
+          "expected": "OAuth 2.0 (LWA) + AWS SigV4 + RDT",
+          "first_pass": "API key/secret, OAuth2",
+          "first_pass_match": true,
+          "final": "OAuth2",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Enterprise gate: multi-step approval",
+          "first_pass": "Self-serve sandbox",
+          "first_pass_match": false,
+          "final": "Enterprise gate",
+          "final_match": true
+        },
+        "api": {
+          "expected": "REST (very broad)",
+          "first_pass": "REST/GraphQL",
+          "first_pass_match": true,
+          "final": "REST",
+          "final_match": true
+        }
+      }
+    },
+    "Apify": {
+      "id": 55,
+      "app": "Apify",
+      "first_pass_matches": [
+        "access",
+        "api"
+      ],
+      "final_matches": [
+        "auth",
+        "access",
+        "api"
+      ],
+      "official_source_url": "https://docs.apify.com/api/v2",
+      "corrected_fields": [
+        "auth"
+      ],
+      "still_wrong": [],
+      "field_results": {
+        "auth": {
+          "expected": "API token + OAuth 2.0 (integrations/MCP)",
+          "first_pass": "API key or bearer token",
+          "first_pass_match": false,
+          "final": "API Token",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Self-serve: free $5/mo usage",
+          "first_pass": "Self-serve signup/trial",
+          "first_pass_match": true,
+          "final": "Self-serve trial",
+          "final_match": true
+        },
+        "api": {
+          "expected": "REST (very broad); MCP server",
+          "first_pass": "REST",
+          "first_pass_match": true,
+          "final": "REST",
+          "final_match": true
+        }
+      }
+    },
+    "Firecrawl": {
+      "id": 56,
+      "app": "Firecrawl",
+      "first_pass_matches": [
+        "auth",
+        "access",
+        "api"
+      ],
+      "final_matches": [
+        "auth",
+        "access",
+        "api"
+      ],
+      "official_source_url": "https://docs.firecrawl.dev/api-reference",
+      "corrected_fields": [],
+      "still_wrong": [],
+      "field_results": {
+        "auth": {
+          "expected": "API key (Bearer; fc- prefix)",
+          "first_pass": "API key or bearer token",
+          "first_pass_match": true,
+          "final": "API Key",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Self-serve: free 1000 credits/mo",
+          "first_pass": "Self-serve signup/trial",
+          "first_pass_match": true,
+          "final": "Self-serve trial",
+          "final_match": true
+        },
+        "api": {
+          "expected": "REST; MCP server",
+          "first_pass": "REST",
+          "first_pass_match": true,
+          "final": "REST",
+          "final_match": true
+        }
+      }
+    },
+    "GitHub": {
+      "id": 61,
+      "app": "GitHub",
+      "first_pass_matches": [
+        "access",
+        "api"
+      ],
+      "final_matches": [
+        "auth",
+        "access",
+        "api"
+      ],
+      "official_source_url": "https://docs.github.com/rest/authentication/authenticating-to-the-rest-api",
+      "corrected_fields": [
+        "auth"
+      ],
+      "still_wrong": [],
+      "field_results": {
+        "auth": {
+          "expected": "OAuth 2.0 (PAT, OAuth App, GitHub App, GITHUB_TOKEN)",
+          "first_pass": "Personal/API token",
+          "first_pass_match": false,
+          "final": "OAuth2",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Self-serve: free tier (5000 req/hr)",
+          "first_pass": "Self-serve",
+          "first_pass_match": true,
+          "final": "Self-serve trial",
+          "final_match": true
+        },
+        "api": {
+          "expected": "REST + GraphQL (very broad)",
+          "first_pass": "REST",
+          "first_pass_match": true,
+          "final": "REST",
+          "final_match": true
+        }
+      }
+    },
+    "Cloudflare": {
+      "id": 64,
+      "app": "Cloudflare",
+      "first_pass_matches": [
+        "access",
+        "api"
+      ],
+      "final_matches": [
+        "auth",
+        "access",
+        "api"
+      ],
+      "official_source_url": "https://developers.cloudflare.com/api/",
+      "corrected_fields": [
+        "auth"
+      ],
+      "still_wrong": [],
+      "field_results": {
+        "auth": {
+          "expected": "API Token (Bearer) / Legacy API Key / OAuth 2.0",
+          "first_pass": "Personal/API token",
+          "first_pass_match": false,
+          "final": "API Token",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Self-serve: free tier",
+          "first_pass": "Self-serve",
+          "first_pass_match": true,
+          "final": "Self-serve trial",
+          "final_match": true
+        },
+        "api": {
+          "expected": "REST v4 + GraphQL (100+ products)",
+          "first_pass": "REST",
+          "first_pass_match": true,
+          "final": "REST",
+          "final_match": true
+        }
+      }
+    },
+    "Notion": {
+      "id": 71,
+      "app": "Notion",
+      "first_pass_matches": [
+        "auth",
+        "access",
+        "api"
+      ],
+      "final_matches": [
+        "auth",
+        "access",
+        "api"
+      ],
+      "official_source_url": "https://developers.notion.com/docs/authorization",
+      "corrected_fields": [],
+      "still_wrong": [],
+      "field_results": {
+        "auth": {
+          "expected": "OAuth 2.0 / PAT / Internal Integration Token",
+          "first_pass": "OAuth2",
+          "first_pass_match": true,
+          "final": "OAuth2",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Self-serve: free tier",
+          "first_pass": "Usually self-serve",
+          "first_pass_match": true,
+          "final": "Self-serve trial",
+          "final_match": true
+        },
+        "api": {
+          "expected": "REST (~37 endpoints)",
+          "first_pass": "REST/GraphQL",
+          "first_pass_match": true,
+          "final": "REST",
+          "final_match": true
+        }
+      }
+    },
+    "Monday.com": {
+      "id": 76,
+      "app": "Monday.com",
+      "first_pass_matches": [
+        "auth",
+        "access",
+        "api"
+      ],
+      "final_matches": [
+        "auth",
+        "access",
+        "api"
+      ],
+      "official_source_url": "https://developer.monday.com/api-reference/docs/authentication",
+      "corrected_fields": [],
+      "still_wrong": [],
+      "field_results": {
+        "auth": {
+          "expected": "Personal API V2 Token / OAuth 2.0",
+          "first_pass": "OAuth2",
+          "first_pass_match": true,
+          "final": "OAuth2",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Self-serve: free dev account",
+          "first_pass": "Usually self-serve",
+          "first_pass_match": true,
+          "final": "Self-serve trial",
+          "final_match": true
+        },
+        "api": {
+          "expected": "GraphQL; MCP server (50+ tools)",
+          "first_pass": "REST/GraphQL",
+          "first_pass_match": true,
+          "final": "GraphQL",
+          "final_match": true
+        }
+      }
+    },
+    "Stripe": {
+      "id": 81,
+      "app": "Stripe",
+      "first_pass_matches": [
+        "auth",
+        "api"
+      ],
+      "final_matches": [
+        "auth",
+        "access",
+        "api"
+      ],
+      "official_source_url": "https://stripe.com/docs/api/authentication",
+      "corrected_fields": [
+        "access"
+      ],
+      "still_wrong": [],
+      "field_results": {
+        "auth": {
+          "expected": "API keys (Basic Auth/Bearer) / OAuth 2.0 (Connect)",
+          "first_pass": "OAuth2, API key",
+          "first_pass_match": true,
+          "final": "API Key",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Self-serve: free test-mode sandbox",
+          "first_pass": "Paid, compliance",
+          "first_pass_match": false,
+          "final": "Self-serve trial",
+          "final_match": true
+        },
+        "api": {
+          "expected": "REST v1+v2 (~300+ endpoints)",
+          "first_pass": "REST",
+          "first_pass_match": true,
+          "final": "REST",
+          "final_match": true
+        }
+      }
+    },
+    "Binance": {
+      "id": 83,
+      "app": "Binance",
+      "first_pass_matches": [
+        "auth",
+        "api"
+      ],
+      "final_matches": [
+        "auth",
+        "access",
+        "api"
+      ],
+      "official_source_url": "https://binance-docs.github.io/apidocs/spot/en/",
+      "corrected_fields": [
+        "access"
+      ],
+      "still_wrong": [],
+      "field_results": {
+        "auth": {
+          "expected": "API key + HMAC-SHA256/RSA/Ed25519 signature",
+          "first_pass": "OAuth2, API key",
+          "first_pass_match": true,
+          "final": "API Key",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Self-serve: create keys from account",
+          "first_pass": "Paid, compliance",
+          "first_pass_match": false,
+          "final": "Self-serve trial",
+          "final_match": true
+        },
+        "api": {
+          "expected": "REST + WebSocket (very broad)",
+          "first_pass": "REST",
+          "first_pass_match": true,
+          "final": "REST",
+          "final_match": true
+        }
+      }
+    },
+    "Fathom": {
+      "id": 92,
+      "app": "Fathom",
+      "first_pass_matches": [
+        "auth",
+        "access",
+        "api"
+      ],
+      "final_matches": [
+        "auth",
+        "api"
+      ],
+      "official_source_url": "https://developers.fathom.video/",
+      "corrected_fields": [],
+      "still_wrong": [
+        "access"
+      ],
+      "field_results": {
+        "auth": {
+          "expected": "API key (X-Api-Key) / OAuth 2.0 (Auth Code + PKCE)",
+          "first_pass": "API key, OAuth2",
+          "first_pass_match": true,
+          "final": "OAuth2",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Self-serve: free tier (60 req/min)",
+          "first_pass": "Self-serve trial",
+          "first_pass_match": true,
+          "final": "Enterprise gate",
+          "final_match": false
+        },
+        "api": {
+          "expected": "REST (meetings, recordings, transcripts, summaries)",
+          "first_pass": "REST/CLI/MCP mix",
+          "first_pass_match": true,
+          "final": "REST",
+          "final_match": true
+        }
+      }
+    },
+    "Mermaid CLI": {
+      "id": 98,
+      "app": "Mermaid CLI",
+      "first_pass_matches": [
+        "api"
+      ],
+      "final_matches": [
+        "auth",
+        "access",
+        "api"
+      ],
+      "official_source_url": "https://github.com/mermaid-js/mermaid-cli",
+      "corrected_fields": [
+        "auth",
+        "access"
+      ],
+      "still_wrong": [],
+      "field_results": {
+        "auth": {
+          "expected": "None (no auth)",
+          "first_pass": "API key, OAuth2",
+          "first_pass_match": false,
+          "final": "None",
+          "final_match": true
+        },
+        "access": {
+          "expected": "Free/open source (MIT)",
+          "first_pass": "Self-serve trial",
+          "first_pass_match": false,
+          "final": "Open source",
+          "final_match": true
+        },
+        "api": {
+          "expected": "CLI + Node.js API",
+          "first_pass": "REST/CLI/MCP mix",
+          "first_pass_match": true,
+          "final": "CLI",
+          "final_match": true
+        }
+      }
+    }
+  },
   "limitations": [
-    "The 12-row check is directional and intentionally not presented as statistically representative.",
-    "A live URL probe confirms reachability only; it cannot prove auth or commercial policy.",
-    "Rows with human_follow_up=true remain the next review queue before production toolkit sourcing."
+    "20-row check is directional, not statistically representative of all 100 rows.",
+    "Verification checks documentation accuracy, not production API testing.",
+    "Fuzzy matching tolerates category-level vs detailed values.",
+    "Re-verify before production sourcing; API policies and plan gates change."
   ]
 }

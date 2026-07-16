@@ -7,3 +7,13 @@ test_key.py
 test_json.py
 test_kimchi.py
 list_models.py
+.vercel
+.venv/
+.uv-cache/
+.pytest_cache/
+.agents/
+.codex/
+data/research.db
+data/pipeline_status.json
+
+.vercel
