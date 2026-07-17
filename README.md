@@ -1,7 +1,7 @@
 # Toolkit Parity Agent
 An AI agent platform that audits 100 developer APIs for buildability, auth methods, self-serve access, and MCP coverage.
 
-**Live Case Study URL**: [https://composio-research-report.vercel.app](https://composio-research-report.vercel.app)
+**Live Case Study URL**: [https://composio-research-report.vercel.app/](https://composio-research-report.vercel.app/)
 
 **Source Repo URL**: [https://github.com/MasterJi27/composio-toolkit-assessment](https://github.com/MasterJi27/composio-toolkit-assessment)
 
